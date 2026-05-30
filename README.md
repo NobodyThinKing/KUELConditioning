@@ -4,591 +4,214 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KUEL Conditioning — True Healing</title>
-<link rel="manifest" href="manifest.json">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:#0e0f0d; --bg2:#141510; --bg3:#1a1c17;
+  --gold:#c9a84c; --gold-lt:#e8c96b; --gold-dk:#8a6f2e;
+  --sage:#7a9e7e; --cream:#f0e9d6; --cream-dk:#c8bda0;
+  --text:#ede8df; --text-2:#b0a992; --text-3:#6b6555;
+  --border:rgba(201,168,76,0.18); --radius:4px;
+}
+html { scroll-behavior:smooth; }
+body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; overflow-x:hidden; }
+.page { display:none; }
+.page.active { display:block; }
 
-  :root {
-    --bg:       #0e0f0d;
-    --bg2:      #141510;
-    --bg3:      #1a1c17;
-    --gold:     #c9a84c;
-    --gold-lt:  #e8c96b;
-    --gold-dk:  #8a6f2e;
-    --sage:     #7a9e7e;
-    --sage-lt:  #a8c7ab;
-    --cream:    #f0e9d6;
-    --cream-dk: #c8bda0;
-    --text:     #ede8df;
-    --text-2:   #b0a992;
-    --text-3:   #6b6555;
-    --border:   rgba(201,168,76,0.18);
-    --radius:   4px;
-  }
+/* NAV */
+nav { position:fixed; top:0; left:0; right:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 2.5rem; height:70px; background:rgba(14,15,13,0.95); backdrop-filter:blur(12px); border-bottom:0.5px solid var(--border); }
+.nav-logo { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--gold); cursor:pointer; letter-spacing:.05em; }
+.nav-logo span { color:var(--cream); }
+.nav-links { display:flex; gap:2rem; list-style:none; }
+.nav-links a { font-size:13px; font-weight:400; letter-spacing:.08em; text-transform:uppercase; color:var(--text-2); cursor:pointer; transition:color .2s; }
+.nav-links a:hover, .nav-links a.active { color:var(--gold); }
+.nav-cta { font-size:12px; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:var(--bg); background:var(--gold); padding:9px 20px; border-radius:var(--radius); cursor:pointer; transition:background .2s; }
+.nav-cta:hover { background:var(--gold-lt); }
 
-  html { scroll-behavior: smooth; }
+/* SHARED */
+.divider { width:48px; height:1px; background:linear-gradient(to right,transparent,var(--gold),transparent); margin:0 auto; }
+section { padding:5rem 2rem; }
+.section-inner { max-width:1100px; margin:0 auto; }
+.section-label { font-size:10px; font-weight:500; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; }
+.section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(30px,4vw,48px); font-weight:500; line-height:1.15; color:var(--cream); margin-bottom:1.5rem; }
+.section-title em { font-style:italic; color:var(--gold); }
+.section-body { font-size:15px; font-weight:300; line-height:1.85; color:var(--text-2); max-width:640px; }
+.btn-primary { display:inline-flex; align-items:center; gap:8px; background:var(--gold); color:var(--bg); font-size:12px; font-weight:500; letter-spacing:.1em; text-transform:uppercase; padding:12px 24px; border-radius:var(--radius); border:none; cursor:pointer; transition:background .2s; text-decoration:none; }
+.btn-primary:hover { background:var(--gold-lt); }
+.btn-ghost { display:inline-flex; align-items:center; gap:8px; background:transparent; color:var(--cream-dk); font-size:12px; font-weight:500; letter-spacing:.1em; text-transform:uppercase; padding:12px 24px; border-radius:var(--radius); border:0.5px solid var(--border); cursor:pointer; transition:border-color .2s, color .2s; }
+.btn-ghost:hover { border-color:var(--gold); color:var(--gold); }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+/* HERO */
+.hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:8rem 2rem 4rem; position:relative; text-align:center; overflow:hidden; }
+.hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse 70% 60% at 50% 40%,rgba(201,168,76,.07) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(122,158,126,.06) 0%,transparent 60%); }
+.hero-symbol { font-family:'Cormorant Garamond',serif; font-size:clamp(80px,12vw,140px); font-weight:400; font-style:italic; color:transparent; -webkit-text-stroke:1px rgba(201,168,76,.25); line-height:1; margin-bottom:1.5rem; }
+.hero-eyebrow { font-size:11px; font-weight:500; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); margin-bottom:1.25rem; }
+.hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(42px,7vw,80px); font-weight:500; line-height:1.08; color:var(--cream); margin-bottom:1.5rem; max-width:800px; }
+.hero h1 em { font-style:italic; color:var(--gold); }
+.hero-sub { font-size:16px; font-weight:300; line-height:1.75; color:var(--text-2); max-width:560px; margin-bottom:2.5rem; }
+.hero-actions { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; }
+.hero-scroll { position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; color:var(--text-3); font-size:10px; letter-spacing:.2em; text-transform:uppercase; }
+.hero-scroll::after { content:''; display:block; width:1px; height:40px; background:linear-gradient(to bottom,var(--gold-dk),transparent); }
 
-  /* ── PAGE ROUTING ── */
-  .page { display: none; }
-  .page.active { display: block; }
+/* MISSION */
+.mission { background:var(--bg2); border-top:0.5px solid var(--border); border-bottom:0.5px solid var(--border); }
+.mission-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+.mission-quote { font-family:'Cormorant Garamond',serif; font-size:clamp(22px,3vw,32px); font-style:italic; font-weight:400; line-height:1.5; color:var(--cream); border-left:2px solid var(--gold); padding-left:1.75rem; margin-bottom:2rem; }
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 2.5rem;
-    height: 70px;
-    background: rgba(14,15,13,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid var(--border);
-  }
+/* PILLARS */
+.pillars-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5px; margin-top:3rem; border:1.5px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+.pillar { background:var(--bg3); padding:2rem 1.75rem; transition:background .2s; }
+.pillar:hover { background:#1e2019; }
+.pillar-icon { font-family:'Cormorant Garamond',serif; font-size:36px; font-style:italic; color:var(--gold); margin-bottom:1rem; }
+.pillar h3 { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--cream); margin-bottom:.75rem; }
+.pillar p { font-size:13px; font-weight:300; line-height:1.7; color:var(--text-2); }
 
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--gold);
-    cursor: pointer;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--cream); }
+/* COURSE */
+.course { background:var(--bg2); }
+.weeks-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:3rem; }
+.week-card { background:var(--bg3); border:0.5px solid var(--border); border-radius:var(--radius); padding:1.5rem; transition:border-color .2s, transform .15s; }
+.week-card:hover { border-color:rgba(201,168,76,.45); transform:translateY(-2px); }
+.week-num { font-size:10px; font-weight:500; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); margin-bottom:.5rem; }
+.week-card h3 { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:600; color:var(--cream); margin-bottom:.75rem; }
+.week-card ul { list-style:none; display:flex; flex-direction:column; gap:4px; }
+.week-card ul li { font-size:12px; font-weight:300; color:var(--text-2); padding-left:12px; position:relative; }
+.week-card ul li::before { content:'·'; position:absolute; left:0; color:var(--gold-dk); }
 
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-2);
-    text-decoration: none;
-    cursor: pointer;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover,
-  .nav-links a.active { color: var(--gold); }
+/* ABOUT */
+.about-grid { display:grid; grid-template-columns:1fr 1.4fr; gap:5rem; align-items:start; }
+.about-card { background:var(--bg3); border:0.5px solid var(--border); border-radius:var(--radius); padding:2rem; text-align:center; }
+.about-avatar { width:80px; height:80px; border-radius:50%; background:linear-gradient(135deg,var(--gold-dk),var(--sage)); display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:600; color:var(--cream); margin:0 auto 1.25rem; }
+.about-card h3 { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--cream); margin-bottom:4px; }
+.about-card .role { font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:1.25rem; }
+.about-contact-item { font-size:13px; color:var(--text-2); margin-top:8px; }
+.about-contact-item a { color:var(--gold); text-decoration:none; }
+.cta-banner { background:linear-gradient(135deg,var(--bg3) 0%,#1a1d16 100%); border-top:0.5px solid var(--border); border-bottom:0.5px solid var(--border); text-align:center; }
 
-  .nav-cta {
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--bg);
-    background: var(--gold);
-    padding: 9px 20px;
-    border-radius: var(--radius);
-    text-decoration: none;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .nav-cta:hover { background: var(--gold-lt); }
+/* VIDEOS PAGE */
+.videos-hero { padding:8rem 2rem 3rem; text-align:center; background:var(--bg2); border-bottom:0.5px solid var(--border); }
+.playlist-wrap { max-width:900px; margin:0 auto; border-radius:var(--radius); overflow:hidden; border:0.5px solid var(--border); background:#000; }
+.playlist-wrap iframe { width:100%; aspect-ratio:16/9; display:block; border:none; }
 
-  .nav-mobile-btn {
-    display: none;
-    flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
-  }
-  .nav-mobile-btn span {
-    display: block; width: 22px; height: 1.5px;
-    background: var(--text-2); transition: 0.2s;
-  }
+/* ─── RESOURCES PAGE ─── */
+.resources-hero { padding:8rem 2rem 4rem; text-align:center; background:var(--bg2); border-bottom:0.5px solid var(--border); }
 
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    padding: 8rem 2rem 4rem;
-    position: relative;
-    text-align: center;
-    overflow: hidden;
-  }
+/* Featured docs top row */
+.featured-docs { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem; }
+.doc-featured-card { background:var(--bg3); border:0.5px solid var(--border); border-radius:var(--radius); overflow:hidden; transition:border-color .2s, transform .15s; display:flex; flex-direction:column; }
+.doc-featured-card:hover { border-color:rgba(201,168,76,.5); transform:translateY(-2px); }
+.doc-featured-badge { background:var(--gold); color:var(--bg); font-size:10px; font-weight:500; letter-spacing:.2em; text-transform:uppercase; padding:6px 14px; }
+.doc-featured-body { padding:1.5rem; flex:1; display:flex; flex-direction:column; }
+.doc-num { font-size:11px; color:var(--gold); font-weight:500; letter-spacing:.15em; margin-bottom:.4rem; }
+.doc-featured-body h3 { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--cream); margin-bottom:.6rem; line-height:1.3; }
+.doc-featured-body p { font-size:12px; color:var(--text-2); line-height:1.65; margin-bottom:1.25rem; flex:1; }
+.doc-featured-actions { display:flex; gap:.6rem; flex-wrap:wrap; }
+.doc-open-btn { display:inline-flex; align-items:center; gap:6px; background:var(--gold); color:var(--bg); font-size:11px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; padding:9px 16px; border-radius:var(--radius); border:none; cursor:pointer; transition:background .2s; }
+.doc-open-btn:hover { background:var(--gold-lt); }
+.doc-link-btn { display:inline-flex; align-items:center; gap:6px; background:transparent; color:var(--text-2); font-size:11px; font-weight:400; letter-spacing:.08em; text-transform:uppercase; padding:9px 14px; border-radius:var(--radius); border:0.5px solid var(--border); cursor:pointer; text-decoration:none; transition:color .2s, border-color .2s; }
+.doc-link-btn:hover { color:var(--gold); border-color:var(--gold); }
 
-  .hero-bg {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 70% 60% at 50% 40%, rgba(201,168,76,0.07) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(122,158,126,0.06) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 50% at 80% 20%, rgba(122,158,126,0.04) 0%, transparent 60%);
-  }
+/* Resource list 4-10 */
+.resources-list { display:flex; flex-direction:column; gap:10px; margin-top:2rem; }
+.resource-row { background:var(--bg3); border:0.5px solid var(--border); border-radius:var(--radius); display:flex; align-items:center; gap:1.25rem; padding:1.1rem 1.5rem; transition:border-color .2s; }
+.resource-row:hover { border-color:rgba(201,168,76,.4); }
+.resource-num { font-family:'Cormorant Garamond',serif; font-size:28px; font-style:italic; color:var(--gold-dk); min-width:36px; text-align:center; line-height:1; }
+.resource-info { flex:1; }
+.resource-info h4 { font-size:14px; font-weight:500; color:var(--cream); margin-bottom:2px; }
+.resource-info p { font-size:12px; color:var(--text-3); }
+.resource-type { font-size:10px; font-weight:500; letter-spacing:.15em; text-transform:uppercase; padding:3px 8px; border-radius:3px; background:rgba(201,168,76,.1); color:var(--gold-dk); }
+.resource-link { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:var(--text-2); text-decoration:none; padding:8px 14px; border:0.5px solid var(--border); border-radius:var(--radius); transition:color .2s, border-color .2s; }
+.resource-link:hover { color:var(--gold); border-color:var(--gold); }
 
-  .hero-symbol {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(80px, 12vw, 140px);
-    font-weight: 400;
-    font-style: italic;
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(201,168,76,0.25);
-    line-height: 1;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
-    user-select: none;
-  }
+/* DOC MODAL */
+.doc-modal-overlay { position:fixed; inset:0; z-index:500; background:rgba(8,9,7,.92); backdrop-filter:blur(6px); display:none; overflow-y:auto; padding:1.5rem; }
+.doc-modal-overlay.open { display:block; }
+.doc-modal { max-width:820px; margin:0 auto; background:#f8f5ef; border-radius:6px; overflow:hidden; box-shadow:0 20px 80px rgba(0,0,0,.7); }
+.doc-modal-toolbar { background:#1a1c17; border-bottom:1px solid rgba(201,168,76,.2); padding:12px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; position:sticky; top:0; z-index:10; }
+.doc-modal-title { font-size:13px; font-weight:500; color:var(--gold); letter-spacing:.05em; }
+.doc-modal-actions { display:flex; gap:8px; }
+.modal-print-btn { background:var(--gold); color:var(--bg); border:none; font-size:11px; font-weight:500; letter-spacing:.1em; text-transform:uppercase; padding:7px 16px; border-radius:3px; cursor:pointer; }
+.modal-print-btn:hover { background:var(--gold-lt); }
+.modal-close-btn { background:transparent; color:var(--text-3); border:0.5px solid rgba(201,168,76,.2); font-size:18px; width:32px; height:32px; border-radius:3px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:color .2s; }
+.modal-close-btn:hover { color:var(--cream); }
+.doc-modal-body { padding:3rem 3.5rem; background:#f8f5ef; color:#1a1a1a; }
+.doc-body-title { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; color:#1a1a1a; text-align:center; margin-bottom:.5rem; }
+.doc-body-subtitle { font-size:12px; text-align:center; color:#666; margin-bottom:2rem; letter-spacing:.05em; }
+.doc-section-title { font-size:13px; font-weight:600; color:#1a1a1a; margin:1.5rem 0 .5rem; text-transform:uppercase; letter-spacing:.08em; }
+.doc-body-text { font-size:13px; line-height:1.8; color:#333; margin-bottom:.75rem; }
+.doc-fill-field { display:inline-block; border:none; border-bottom:1.5px solid #8a6f2e; background:transparent; font-size:13px; font-family:'DM Sans',sans-serif; color:#1a1a1a; padding:2px 6px; min-width:160px; outline:none; transition:border-color .2s; }
+.doc-fill-field:focus { border-color:#c9a84c; background:rgba(201,168,76,.07); }
+.doc-fill-field.wide { min-width:240px; }
+.doc-fill-field.short { min-width:80px; }
+.doc-sig-block { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid #ddd; }
+.doc-sig-col .sig-line { border-bottom:1.5px solid #333; height:40px; margin-bottom:6px; }
+.doc-sig-col label { font-size:11px; color:#666; }
+.doc-sig-col input { width:100%; border:none; border-bottom:1.5px solid #8a6f2e; background:transparent; font-size:13px; padding:2px 4px; margin-top:4px; outline:none; color:#1a1a1a; }
+.doc-sig-col input:focus { border-color:#c9a84c; background:rgba(201,168,76,.07); }
+.doc-bullet { font-size:13px; line-height:1.8; color:#333; padding-left:1.25rem; position:relative; margin-bottom:.3rem; }
+.doc-bullet::before { content:'—'; position:absolute; left:0; color:#8a6f2e; }
+.doc-strong { font-weight:600; }
+.doc-note { background:rgba(201,168,76,.08); border-left:3px solid #c9a84c; padding:10px 14px; border-radius:0 3px 3px 0; margin:1rem 0; font-size:12px; color:#555; line-height:1.7; }
 
-  .hero-eyebrow {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.25rem;
-  }
+/* PRINT */
+@media print {
+  nav, .doc-modal-toolbar, .doc-featured-actions, .hero-scroll, footer { display:none !important; }
+  .doc-modal-overlay { position:static !important; background:white !important; padding:0 !important; }
+  .doc-modal { box-shadow:none !important; max-width:100% !important; }
+  .doc-modal-body { padding:1.5rem 2rem !important; }
+  body > *:not(.doc-modal-overlay) { display:none !important; }
+  .doc-fill-field { border-bottom:1px solid #000 !important; min-width:180px; }
+}
 
-  .hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(42px, 7vw, 80px);
-    font-weight: 500;
-    line-height: 1.08;
-    color: var(--cream);
-    margin-bottom: 1.5rem;
-    max-width: 800px;
-  }
+/* FOOTER */
+footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3rem 2rem; text-align:center; }
+.footer-logo { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:600; color:var(--gold); margin-bottom:.5rem; }
+.footer-tagline { font-size:12px; letter-spacing:.15em; text-transform:uppercase; color:var(--text-3); margin-bottom:1.5rem; }
+.footer-links { display:flex; gap:1.5rem; justify-content:center; list-style:none; margin-bottom:2rem; }
+.footer-links a { font-size:12px; color:var(--text-2); cursor:pointer; transition:color .2s; }
+.footer-links a:hover { color:var(--gold); }
+.footer-bottom { font-size:11px; color:var(--text-3); padding-top:1.5rem; border-top:0.5px solid rgba(201,168,76,.08); }
 
-  .hero h1 em {
-    font-style: italic;
-    color: var(--gold);
-  }
-
-  .hero-sub {
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.75;
-    color: var(--text-2);
-    max-width: 560px;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--gold);
-    color: var(--bg);
-    font-size: 12px; font-weight: 500;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 14px 28px;
-    border-radius: var(--radius);
-    text-decoration: none; cursor: pointer; border: none;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .btn-primary:hover { background: var(--gold-lt); transform: translateY(-1px); }
-
-  .btn-ghost {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: transparent;
-    color: var(--cream-dk);
-    font-size: 12px; font-weight: 500;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 14px 28px;
-    border-radius: var(--radius);
-    border: 0.5px solid var(--border);
-    text-decoration: none; cursor: pointer;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-
-  .hero-scroll {
-    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 8px;
-    color: var(--text-3);
-    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-  }
-  .hero-scroll::after {
-    content: '';
-    display: block; width: 1px; height: 40px;
-    background: linear-gradient(to bottom, var(--gold-dk), transparent);
-  }
-
-  /* ── DIVIDER ── */
-  .divider {
-    width: 48px; height: 1px;
-    background: linear-gradient(to right, transparent, var(--gold), transparent);
-    margin: 0 auto;
-  }
-
-  /* ── SECTION BASE ── */
-  section { padding: 5rem 2rem; }
-
-  .section-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(30px, 4vw, 48px);
-    font-weight: 500;
-    line-height: 1.15;
-    color: var(--cream);
-    margin-bottom: 1.5rem;
-  }
-  .section-title em { font-style: italic; color: var(--gold); }
-
-  .section-body {
-    font-size: 15px;
-    font-weight: 300;
-    line-height: 1.85;
-    color: var(--text-2);
-    max-width: 640px;
-  }
-
-  /* ── MISSION ── */
-  .mission {
-    background: var(--bg2);
-    border-top: 0.5px solid var(--border);
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .mission-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  .mission-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(22px, 3vw, 32px);
-    font-style: italic;
-    font-weight: 400;
-    line-height: 1.5;
-    color: var(--cream);
-    border-left: 2px solid var(--gold);
-    padding-left: 1.75rem;
-    margin-bottom: 2rem;
-  }
-
-  /* ── PILLARS ── */
-  .pillars-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5px;
-    margin-top: 3rem;
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-  }
-
-  .pillar {
-    background: var(--bg3);
-    padding: 2rem 1.75rem;
-    transition: background 0.2s;
-  }
-  .pillar:hover { background: #1e2019; }
-
-  .pillar-icon {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 36px;
-    font-style: italic;
-    color: var(--gold);
-    margin-bottom: 1rem;
-    line-height: 1;
-  }
-
-  .pillar h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--cream);
-    margin-bottom: 0.75rem;
-    letter-spacing: 0.02em;
-  }
-
-  .pillar p {
-    font-size: 13px;
-    font-weight: 300;
-    line-height: 1.7;
-    color: var(--text-2);
-  }
-
-  /* ── COURSE ── */
-  .course { background: var(--bg2); }
-
-  .weeks-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-top: 3rem;
-  }
-
-  .week-card {
-    background: var(--bg3);
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.5rem;
-    transition: border-color 0.2s, transform 0.15s;
-    cursor: default;
-  }
-  .week-card:hover {
-    border-color: rgba(201,168,76,0.45);
-    transform: translateY(-2px);
-  }
-
-  .week-num {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-  }
-
-  .week-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--cream);
-    margin-bottom: 0.75rem;
-    line-height: 1.3;
-  }
-
-  .week-card ul {
-    list-style: none;
-    display: flex; flex-direction: column; gap: 4px;
-  }
-
-  .week-card ul li {
-    font-size: 12px;
-    font-weight: 300;
-    color: var(--text-2);
-    padding-left: 12px;
-    position: relative;
-  }
-  .week-card ul li::before {
-    content: '·';
-    position: absolute; left: 0;
-    color: var(--gold-dk);
-  }
-
-  /* ── ABOUT ── */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 5rem;
-    align-items: start;
-  }
-
-  .about-card {
-    background: var(--bg3);
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius);
-    padding: 2rem;
-    text-align: center;
-  }
-
-  .about-avatar {
-    width: 80px; height: 80px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold-dk), var(--sage));
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px; font-weight: 600;
-    color: var(--cream);
-    margin: 0 auto 1.25rem;
-  }
-
-  .about-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 600;
-    color: var(--cream);
-    margin-bottom: 4px;
-  }
-
-  .about-card .role {
-    font-size: 12px; font-weight: 400;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.25rem;
-  }
-
-  .about-card .divider { margin: 1rem auto; }
-
-  .about-contact-item {
-    font-size: 13px; color: var(--text-2);
-    margin-top: 8px;
-  }
-  .about-contact-item a { color: var(--gold); text-decoration: none; }
-  .about-contact-item a:hover { text-decoration: underline; }
-
-  /* ── CTA BANNER ── */
-  .cta-banner {
-    background: linear-gradient(135deg, var(--bg3) 0%, #1a1d16 100%);
-    border-top: 0.5px solid var(--border);
-    border-bottom: 0.5px solid var(--border);
-    text-align: center;
-  }
-
-  /* ── VIDEOS PAGE ── */
-  .videos-hero {
-    padding: 8rem 2rem 3rem;
-    text-align: center;
-    background: var(--bg2);
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .playlist-wrap {
-    max-width: 900px;
-    margin: 0 auto;
-    border-radius: var(--radius);
-    overflow: hidden;
-    border: 0.5px solid var(--border);
-    background: #000;
-  }
-
-  .playlist-wrap iframe {
-    width: 100%;
-    aspect-ratio: 16/9;
-    display: block;
-    border: none;
-  }
-
-  .videos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-
-  .video-card {
-    background: var(--bg3);
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    transition: border-color 0.2s, transform 0.15s;
-  }
-  .video-card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-2px); }
-
-  .video-thumb {
-    position: relative;
-    aspect-ratio: 16/9;
-    background: #1a1c17;
-    overflow: hidden;
-    cursor: pointer;
-  }
-  .video-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .video-play-btn {
-    position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: center;
-    background: rgba(0,0,0,0.4);
-    transition: background 0.2s;
-  }
-  .video-thumb:hover .video-play-btn { background: rgba(0,0,0,0.2); }
-  .video-play-btn svg { width: 48px; height: 48px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5)); }
-
-  .video-info { padding: 1rem 1.25rem; }
-  .video-info h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 17px; font-weight: 600;
-    color: var(--cream);
-    margin-bottom: 4px;
-    line-height: 1.3;
-  }
-  .video-info p { font-size: 12px; color: var(--text-3); }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--bg2);
-    border-top: 0.5px solid var(--border);
-    padding: 3rem 2rem;
-    text-align: center;
-  }
-
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px; font-weight: 600;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.05em;
-  }
-
-  .footer-tagline {
-    font-size: 12px; letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-3);
-    margin-bottom: 1.5rem;
-  }
-
-  .footer-links {
-    display: flex; gap: 1.5rem; justify-content: center;
-    list-style: none; margin-bottom: 2rem;
-  }
-  .footer-links a {
-    font-size: 12px; color: var(--text-2);
-    text-decoration: none; cursor: pointer;
-    transition: color 0.2s;
-  }
-  .footer-links a:hover { color: var(--gold); }
-
-  .footer-bottom {
-    font-size: 11px; color: var(--text-3);
-    padding-top: 1.5rem;
-    border-top: 0.5px solid rgba(201,168,76,0.08);
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    .nav-links, .nav-cta { display: none; }
-    .nav-mobile-btn { display: flex; }
-    .mission-grid, .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .pillars-grid, .weeks-grid { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 36px; }
-  }
+@media (max-width:768px) {
+  .nav-links, .nav-cta { display:none; }
+  .mission-grid, .about-grid { grid-template-columns:1fr; gap:2.5rem; }
+  .pillars-grid, .weeks-grid, .featured-docs { grid-template-columns:1fr; }
+  .doc-modal-body { padding:2rem 1.5rem; }
+  .doc-sig-block { grid-template-columns:1fr; gap:1rem; }
+  nav { padding:0 1.5rem; }
+}
 </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
+<!-- NAV -->
 <nav>
-  <a class="nav-logo" onclick="showPage('home')">KUEL <span>Conditioning</span></a>
+  <div class="nav-logo" onclick="showPage('home')">KUEL <span>Conditioning</span></div>
   <ul class="nav-links">
-    <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
-    <li><a onclick="showPage('home'); scrollTo('course')">The Course</a></li>
-    <li><a onclick="showPage('home'); scrollTo('about')">About</a></li>
-    <li><a onclick="showPage('videos')" id="nav-videos">Videos</a></li>
+    <li><a id="nav-home" class="active" onclick="showPage('home')">Home</a></li>
+    <li><a onclick="showPage('home');scrollSec('course')">The Course</a></li>
+    <li><a id="nav-resources" onclick="showPage('resources')">Resources</a></li>
+    <li><a id="nav-videos" onclick="showPage('videos')">Videos</a></li>
+    <li><a onclick="showPage('home');scrollSec('about')">About</a></li>
   </ul>
-  <a class="nav-cta" onclick="showPage('home'); scrollTo('contact')">Get Started</a>
-  <div class="nav-mobile-btn" onclick="toggleMobileMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </div>
+  <div class="nav-cta" onclick="showPage('home');scrollSec('contact')">Get Started</div>
 </nav>
 
-<!-- ══════════════════════════════════════════
-     HOME PAGE
-═══════════════════════════════════════════ -->
+<!-- ═══════════════ HOME PAGE ═══════════════ -->
 <div id="page-home" class="page active">
-
-  <!-- HERO -->
   <div class="hero">
     <div class="hero-bg"></div>
     <div class="hero-eyebrow">Bay City, MI · Spiritual Coaching · Non-Profit</div>
     <div class="hero-symbol">K</div>
     <h1>True <em>Healing</em><br>Starts Within</h1>
-    <p class="hero-sub">KUEL Conditioning is a non-profit spiritual coaching program that helps individuals reconnect with themselves, resolve unmet needs, and discover lasting inner peace — across mind, body, and spirit.</p>
+    <p class="hero-sub">KUEL Conditioning is a non-profit spiritual coaching program helping individuals reconnect with themselves, resolve unmet needs, and discover lasting inner peace — across mind, body, and spirit.</p>
     <div class="hero-actions">
-      <a class="btn-primary" onclick="scrollTo('course')">Explore the 6-Week Course</a>
-      <a class="btn-ghost" onclick="showPage('videos')">Watch Our Videos</a>
+      <div class="btn-primary" onclick="scrollSec('course')">Explore the 6-Week Course</div>
+      <div class="btn-ghost" onclick="showPage('resources')">Download Resources</div>
     </div>
     <div class="hero-scroll">Scroll</div>
   </div>
 
-  <!-- MISSION -->
   <section class="mission" id="mission">
     <div class="section-inner">
       <div class="mission-grid">
@@ -600,118 +223,39 @@
         <div>
           <div class="section-label">Mission</div>
           <h2 class="section-title">Helping People <em>Access</em> Their Own Capacity to Heal</h2>
-          <p class="section-body">We believe that many psychological symptoms are not solely disorders to be treated, but signals guiding individuals toward unmet needs and unresolved experiences. By helping people reconnect to themselves, their values, and their inner peace — lasting healing becomes not only possible, but inevitable.</p>
-          <br>
-          <p class="section-body">Rooted in psychology, philosophy, and spiritual development, KUEL Conditioning creates environments of safety, understanding, and genuine support so every individual can thrive.</p>
+          <p class="section-body">We believe many psychological symptoms are signals guiding individuals toward unmet needs. By helping people reconnect to themselves, their values, and inner peace — lasting healing becomes not only possible, but inevitable.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PILLARS -->
   <section id="pillars">
     <div class="section-inner">
       <div class="section-label">What We Work On</div>
       <h2 class="section-title">The Three <em>Pillars</em></h2>
-      <p class="section-body">KUEL Conditioning addresses the whole person — not just symptoms. Every aspect of your wellbeing is assessed, nurtured, and transformed.</p>
       <div class="pillars-grid">
-        <div class="pillar">
-          <div class="pillar-icon">B</div>
-          <h3>Body</h3>
-          <p>BMI, nutrition, exercise, sleep, general living, medical conditions, and all physical needs that form the foundation of wellbeing.</p>
-        </div>
-        <div class="pillar">
-          <div class="pillar-icon">M</div>
-          <h3>Mind</h3>
-          <p>Attention, focus, repetitive thought patterns (both helpful and harmful), cognitive restructuring, and mental maintenance practices.</p>
-        </div>
-        <div class="pillar">
-          <div class="pillar-icon">S</div>
-          <h3>Spirit</h3>
-          <p>Connection to self, others, and nature. Esteem, emotional intelligence, inner fortitude, and the energy that animates your life.</p>
-        </div>
+        <div class="pillar"><div class="pillar-icon">B</div><h3>Body</h3><p>BMI, nutrition, exercise, sleep, general living, and all physical needs that form the foundation of wellbeing.</p></div>
+        <div class="pillar"><div class="pillar-icon">M</div><h3>Mind</h3><p>Attention, focus, repetitive thought patterns, cognitive restructuring, and mental maintenance practices.</p></div>
+        <div class="pillar"><div class="pillar-icon">S</div><h3>Spirit</h3><p>Connection to self, others, and nature. Esteem, emotional intelligence, inner fortitude, and life energy.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- COURSE -->
   <section class="course" id="course">
     <div class="section-inner">
       <div class="section-label">The Program</div>
       <h2 class="section-title">KUEL Konditioning Kourse<br><em>6-Week Transformation</em></h2>
-      <p class="section-body">A structured, deeply personal journey through self-assessment, shadow work, spiritual awakening, and lasting reset. Each week builds on the last — guiding you from where you are to where you're capable of being.</p>
       <div class="weeks-grid">
-        <div class="week-card">
-          <div class="week-num">Week 01</div>
-          <h3>Introduction &amp; Assessment</h3>
-          <ul>
-            <li>Sign contracts &amp; expectations</li>
-            <li>Course overview &amp; intentions</li>
-            <li>Mind / Body / Spirit self-assessment</li>
-            <li>Goal &amp; intention setting</li>
-            <li>Journaling &amp; reflection routines</li>
-          </ul>
-        </div>
-        <div class="week-card">
-          <div class="week-num">Week 02</div>
-          <h3>Shadow Work</h3>
-          <ul>
-            <li>Identify triggers &amp; habitual responses</li>
-            <li>Cognitive Behavioral Therapy tools</li>
-            <li>7-step problem-solving process</li>
-            <li>Self-care assessment (12 Pillars)</li>
-            <li>Esteem, boundaries &amp; mantra writing</li>
-          </ul>
-        </div>
-        <div class="week-card">
-          <div class="week-num">Week 03</div>
-          <h3>Wakening &amp; Spiritual Warfare</h3>
-          <ul>
-            <li>Deep dive into the psyche</li>
-            <li>Perception, openness &amp; brain waves</li>
-            <li>Art of War principles</li>
-            <li>Law of Attraction</li>
-            <li>Needs &amp; goals re-evaluation</li>
-          </ul>
-        </div>
-        <div class="week-card">
-          <div class="week-num">Week 04</div>
-          <h3>Calcination &amp; Resetting</h3>
-          <ul>
-            <li>Remaking the soul</li>
-            <li>Cognitive restructuring</li>
-            <li>The Way — philosophical framework</li>
-            <li>Mushroom Therapy preparation</li>
-            <li>Support team &amp; safety planning</li>
-          </ul>
-        </div>
-        <div class="week-card">
-          <div class="week-num">Week 05</div>
-          <h3>Detox &amp; Nature</h3>
-          <ul>
-            <li>Energy, vibration &amp; frequency</li>
-            <li>Fasting &amp; alkaline nutrition</li>
-            <li>Nature immersion &amp; grounding</li>
-            <li>Mushroom Therapy experience</li>
-            <li>Mind / Body / Spirit preparation</li>
-          </ul>
-        </div>
-        <div class="week-card">
-          <div class="week-num">Week 06</div>
-          <h3>Test &amp; Evaluate</h3>
-          <ul>
-            <li>Integration &amp; reflection</li>
-            <li>Evaluate at Day 2, 7, 30, 90, 180, 360</li>
-            <li>Health review across all pillars</li>
-            <li>Re-assess needs &amp; reset goals</li>
-            <li>Schedule ongoing follow-ups</li>
-          </ul>
-        </div>
+        <div class="week-card"><div class="week-num">Week 01</div><h3>Introduction &amp; Assessment</h3><ul><li>Sign contracts &amp; expectations</li><li>Mind / Body / Spirit self-assessment</li><li>Goal &amp; intention setting</li><li>Journaling &amp; reflection routines</li></ul></div>
+        <div class="week-card"><div class="week-num">Week 02</div><h3>Shadow Work</h3><ul><li>Identify triggers &amp; habitual responses</li><li>Cognitive Behavioral Therapy tools</li><li>7-step problem-solving process</li><li>Esteem, boundaries &amp; mantra writing</li></ul></div>
+        <div class="week-card"><div class="week-num">Week 03</div><h3>Wakening &amp; Spiritual Warfare</h3><ul><li>Deep dive into the psyche</li><li>Brain waves &amp; perception</li><li>Art of War principles</li><li>Law of Attraction</li></ul></div>
+        <div class="week-card"><div class="week-num">Week 04</div><h3>Calcination &amp; Resetting</h3><ul><li>Remaking the soul</li><li>Cognitive restructuring</li><li>The Way — philosophical framework</li><li>Support team &amp; safety planning</li></ul></div>
+        <div class="week-card"><div class="week-num">Week 05</div><h3>Detox &amp; Nature</h3><ul><li>Energy, vibration &amp; frequency</li><li>Fasting &amp; alkaline nutrition</li><li>Nature immersion &amp; grounding</li><li>Mushroom Therapy experience</li></ul></div>
+        <div class="week-card"><div class="week-num">Week 06</div><h3>Test &amp; Evaluate</h3><ul><li>Integration &amp; reflection</li><li>Evaluate at Day 2, 7, 30, 90, 180, 360</li><li>Re-assess needs &amp; reset goals</li><li>Schedule ongoing follow-ups</li></ul></div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="section-inner">
       <div class="about-grid">
@@ -720,10 +264,8 @@
             <div class="about-avatar">LP</div>
             <h3>Luke Pawlaczyk</h3>
             <div class="role">Founder · KUEL Conditioning</div>
-            <div class="divider"></div>
-            <p style="font-size:13px; color:var(--text-2); line-height:1.7; margin-top:1rem;">
-              Bay City, MI · Psychology Degree<br>Human Behavior, Philosophy &amp; Spiritual Development
-            </p>
+            <div class="divider" style="margin:1rem auto;"></div>
+            <p style="font-size:13px;color:var(--text-2);line-height:1.7;margin-top:1rem;">Bay City, MI · Psychology Degree<br>Human Behavior, Philosophy &amp; Spiritual Development</p>
             <div style="margin-top:1.25rem;">
               <div class="about-contact-item">📧 <a href="mailto:kuelconditioning@gmail.com">kuelconditioning@gmail.com</a></div>
               <div class="about-contact-item">📞 <a href="tel:9892454676">(989) 245-4676</a></div>
@@ -733,123 +275,480 @@
         <div>
           <div class="section-label">About the Founder</div>
           <h2 class="section-title">Driven by <em>Purpose</em>,<br>Grounded in Science</h2>
-          <p class="section-body">Luke Pawlaczyk holds a degree in Psychology and has spent years studying human behavior, philosophy, and spiritual development. His work is built on the conviction that true healing emerges when people are given the right environment, support, and understanding to access their own innate capacity to heal.</p>
+          <p class="section-body">Luke Pawlaczyk holds a degree in Psychology and has spent years studying human behavior, philosophy, and spiritual development. His work is built on the conviction that true healing emerges when people are given the right environment, support, and understanding.</p>
           <br>
-          <p class="section-body">Based in Bay City, MI, Luke's vision is to work alongside those seeking healing — from the self-directed to the most vulnerable — and to bring compassionate, evidence-informed guidance that meets people exactly where they are.</p>
+          <p style="font-size:13px;font-style:italic;color:var(--gold);line-height:1.7;">"My purpose is to help individuals access the innate capacity to heal themselves when given the right environment, support, and understanding."</p>
           <br>
-          <p style="font-size:13px; font-style:italic; color:var(--gold); line-height:1.7;">"My purpose is to help individuals access the innate capacity to heal themselves when given the right environment, support, and understanding."</p>
-          <br>
-          <a class="btn-primary" id="contact" href="mailto:kuelconditioning@gmail.com" style="display:inline-flex;">Contact Us</a>
+          <a id="contact" class="btn-primary" href="mailto:kuelconditioning@gmail.com">Contact Us</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA BANNER -->
   <section class="cta-banner">
-    <div class="section-inner" style="text-align:center;">
+    <div class="section-inner">
       <div class="section-label">Ready to Begin?</div>
       <h2 class="section-title">Your <em>Transformation</em> Starts Here</h2>
-      <p class="section-body" style="margin: 0 auto 2rem;">Take the first step toward true healing. Reach out to learn more about the KUEL Konditioning Kourse and whether it's right for you.</p>
-      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <p class="section-body" style="margin:0 auto 2rem;">Take the first step toward true healing. Reach out to learn more about the KUEL Konditioning Kourse.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
         <a class="btn-primary" href="mailto:kuelconditioning@gmail.com">Email Us Today</a>
-        <a class="btn-ghost" onclick="showPage('videos')">Watch Our Videos</a>
+        <div class="btn-ghost" onclick="showPage('resources')">View Resources</div>
       </div>
     </div>
   </section>
+</div>
 
-</div><!-- /page-home -->
-
-
-<!-- ══════════════════════════════════════════
-     VIDEOS PAGE
-═══════════════════════════════════════════ -->
-<div id="page-videos" class="page">
-
-  <div class="videos-hero">
-    <div class="section-label">Media</div>
-    <h1 class="section-title" style="max-width:600px; margin:0 auto 1rem;">KUEL Konditioning Kourse<br><em>Video Library</em></h1>
-    <p class="section-body" style="margin: 0 auto 2.5rem;">Explore our full video series — teachings on true healing, spiritual conditioning, and the transformative practices at the heart of the KUEL Konditioning Kourse.</p>
+<!-- ═══════════════ RESOURCES PAGE ═══════════════ -->
+<div id="page-resources" class="page">
+  <div class="resources-hero">
+    <div class="section-label">DIY Toolkit</div>
+    <h1 class="section-title" style="max-width:700px;margin:0 auto .75rem;">Course <em>Resources</em> &amp; Documents</h1>
+    <p class="section-body" style="margin:0 auto;">All contracts, worksheets, outlines, and lesson materials for the KUEL Konditioning Kourse. Fill out documents directly on this page and print with your answers.</p>
   </div>
 
+  <section>
+    <div class="section-inner">
+
+      <!-- FEATURED DOCS 1, 2, 3 -->
+      <div class="section-label">Start Here — Fill Out &amp; Print</div>
+      <h2 class="section-title">Required <em>Agreements</em> &amp; Foundational Texts</h2>
+      <p class="section-body">Click "Open &amp; Fill" to complete these documents right here on the website. Type your answers in the fields and print — your answers will appear on the printed copy.</p>
+
+      <div class="featured-docs">
+
+        <!-- DOC 1 -->
+        <div class="doc-featured-card">
+          <div class="doc-featured-badge">✦ Featured · Week 1</div>
+          <div class="doc-featured-body">
+            <div class="doc-num">Document 1</div>
+            <h3>Kode of Konduct Kontract</h3>
+            <p>The foundational agreement between Coach and Client outlining ethical principles, responsibilities, boundaries, and expectations for the coaching relationship.</p>
+            <div class="doc-featured-actions">
+              <button class="doc-open-btn" onclick="openModal('doc1')">✏ Open &amp; Fill</button>
+              <a class="doc-link-btn" href="https://docs.google.com/document/d/1czaUrZSoh7TwyFKOPuIRtSbNULMQ3e6slJgXwVdQAO0/edit" target="_blank">Open in Drive ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- DOC 2 -->
+        <div class="doc-featured-card">
+          <div class="doc-featured-badge">✦ Featured · Week 1</div>
+          <div class="doc-featured-body">
+            <div class="doc-num">Document 2</div>
+            <h3>Confidentiality Agreement</h3>
+            <p>A formal agreement ensuring all personal, emotional, spiritual, and psychological information shared during coaching sessions remains strictly confidential.</p>
+            <div class="doc-featured-actions">
+              <button class="doc-open-btn" onclick="openModal('doc2')">✏ Open &amp; Fill</button>
+              <a class="doc-link-btn" href="https://docs.google.com/document/d/1JQe7wBe4IEqbAswqbKK5gS8Mk1L4Bo2GsxLK2el3CeY/edit" target="_blank">Open in Drive ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- DOC 3 -->
+        <div class="doc-featured-card">
+          <div class="doc-featured-badge">✦ Featured · Week 4</div>
+          <div class="doc-featured-body">
+            <div class="doc-num">Document 3</div>
+            <h3>The Way — Outline</h3>
+            <p>Musashi's 9 principles, philosophical frameworks from Buddha, Confucius, and Plato — foundational wisdom for the Calcination &amp; Resetting week of the course.</p>
+            <div class="doc-featured-actions">
+              <button class="doc-open-btn" onclick="openModal('doc3')">✏ Open &amp; Reflect</button>
+              <a class="doc-link-btn" href="https://docs.google.com/document/d/1bAWWlb6sSPKD279LLPwjHJJhGA_2mmiBhNyLILMtL04/edit" target="_blank">Open in Drive ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DOCS 4-10 -->
+      <div style="margin-top:4rem;">
+        <div class="section-label">Full Resource Library</div>
+        <h2 class="section-title">Documents <em>4 – 10</em></h2>
+        <p class="section-body" style="margin-bottom:.5rem;">Click any document to open it in Google Drive. Make sure files are set to "Anyone with the link can view" in Drive so visitors can access them.</p>
+        <div class="doc-note" style="background:rgba(201,168,76,.08);border-left:3px solid var(--gold);padding:10px 14px;border-radius:0 3px 3px 0;margin:1rem 0 1.5rem;font-size:12px;color:var(--text-2);">
+          💡 <strong style="color:var(--gold);">Tip:</strong> To make these links work for all visitors, open each file in Google Drive → click Share → change to "Anyone with the link can view."
+        </div>
+
+        <div class="resources-list">
+          <div class="resource-row">
+            <div class="resource-num">4</div>
+            <div class="resource-info">
+              <h4>Needs-Goals Worksheets</h4>
+              <p>Maslow's hierarchy self-assessment, needs scoring, goal setting — daily, monthly, yearly &amp; long-term dreams</p>
+            </div>
+            <span class="resource-type">PDF · Worksheet</span>
+            <a class="resource-link" href="https://drive.google.com/file/d/1vsRHALVx3J_lJWnPNAvaYBJa1po3kdmP/view" target="_blank">Open ↗</a>
+          </div>
+          <div class="resource-row">
+            <div class="resource-num">5</div>
+            <div class="resource-info">
+              <h4>Finding Your Soul — Outline</h4>
+              <p>Journaling techniques, the soul across religious &amp; philosophical traditions, remaking &amp; renewing the soul</p>
+            </div>
+            <span class="resource-type">Doc · Outline</span>
+            <a class="resource-link" href="https://docs.google.com/document/d/1F4O8932BXA4iUeCoN7N2CeCNA64ufqJ_4iUPIdb0Lto/edit" target="_blank">Open ↗</a>
+          </div>
+          <div class="resource-row">
+            <div class="resource-num">6</div>
+            <div class="resource-info">
+              <h4>Spiritual Warfare — Outline</h4>
+              <p>Universal Laws of Vibration &amp; Energy, manipulation vs alignment, good vs bad energy dynamics</p>
+            </div>
+            <span class="resource-type">Doc · Outline</span>
+            <a class="resource-link" href="https://docs.google.com/document/d/1bWj3Yy9JS2kWdG-mr7B60GvRE9YyCB6ov_JoZMTYv9s/edit" target="_blank">Open ↗</a>
+          </div>
+          <div class="resource-row">
+            <div class="resource-num">6.1</div>
+            <div class="resource-info">
+              <h4>Spiritual Warfare — Notes (Dark Psychology)</h4>
+              <p>Dark psychology techniques, manipulation in relationships, cognitive-behavioral protection strategies</p>
+            </div>
+            <span class="resource-type">Doc · Notes</span>
+            <a class="resource-link" href="https://docs.google.com/document/d/1A6QtvsVdVdodq5U8AdS4rkTn0Xz9iT7vt5WINsOYdv0/edit" target="_blank">Open ↗</a>
+          </div>
+          <div class="resource-row">
+            <div class="resource-num">7</div>
+            <div class="resource-info">
+              <h4>KUEL Journaling — Notes</h4>
+              <p>Types of journaling, goal-setting journal templates, visualization techniques for focus &amp; accountability</p>
+            </div>
+            <span class="resource-type">Doc · Notes</span>
+            <a class="resource-link" href="https://docs.google.com/document/d/1FabR3Wq3YNLz77v4y1BeR55FFTLTPfwELDbF1rTxaS0/edit" target="_blank">Open ↗</a>
+          </div>
+          <div class="resource-row">
+            <div class="resource-num">8</div>
+            <div class="resource-info">
+              <h4>KUEL Nutrition — Notes</h4>
+              <p>Alkaline diet principles, food pH science, fasting protocols, nutrition lesson plan for Week 5</p>
+            </div>
+            <span class="resource-type">Doc · Notes</span>
+            <a class="resource-link" href="https://docs.google.com/document/d/1SNsy-TddZl7z1ZEUBB5fWAivo5YgPBCfPzuk6BMNdQM/edit" target="_blank">Open ↗</a>
+          </div>
+          <div class="resource-row">
+            <div class="resource-num">9</div>
+            <div class="resource-info">
+              <h4>KUEL Power — Notes</h4>
+              <p>The Art of War &amp; spiritual warfare, Sun Tzu's principles applied to inner battles, strategy &amp; discernment</p>
+            </div>
+            <span class="resource-type">Doc · Notes</span>
+            <a class="resource-link" href="https://docs.google.com/document/d/10s8_Lx_pq6pSUddy2X8eagO0ipqTonxfkh_jma1QumQ/edit" target="_blank">Open ↗</a>
+          </div>
+          <div class="resource-row">
+            <div class="resource-num">10</div>
+            <div class="resource-info">
+              <h4>KUEL Self-Care — Notes</h4>
+              <p>50 self-care practices across physical, emotional, mental, social, and spiritual dimensions of wellness</p>
+            </div>
+            <span class="resource-type">Doc · Notes</span>
+            <a class="resource-link" href="https://docs.google.com/document/d/1WyqGHhx80-HcZFWuROxm4NFDCoDVZo_YusUPRnDB1vk/edit" target="_blank">Open ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════ VIDEOS PAGE ═══════════════ -->
+<div id="page-videos" class="page">
+  <div class="videos-hero">
+    <div class="section-label">Media</div>
+    <h1 class="section-title" style="max-width:600px;margin:0 auto 1rem;">KUEL Konditioning Kourse<br><em>Video Library</em></h1>
+    <p class="section-body" style="margin:0 auto 2.5rem;">Explore our full video series — teachings on true healing, spiritual conditioning, and the transformative practices at the heart of the course.</p>
+  </div>
   <section>
     <div class="section-inner">
       <div class="section-label">Full Playlist</div>
       <h2 class="section-title" style="margin-bottom:1.5rem;">Watch the <em>Series</em></h2>
       <div class="playlist-wrap">
-        <iframe
-          src="https://www.youtube.com/embed/videoseries?list=PLQY9UNiB9VdWiDhiZUnNiGYkGmZMGMDGC&rel=0&modestbranding=1"
-          title="KUEL Konditioning Kourse Playlist"
-          allowfullscreen
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-        </iframe>
+        <iframe src="https://www.youtube.com/embed/videoseries?list=PLQY9UNiB9VdWiDhiZUnNiGYkGmZMGMDGC&rel=0&modestbranding=1" title="KUEL Konditioning Kourse Playlist" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
       </div>
-      <p style="font-size:13px; color:var(--text-3); margin-top:1rem; text-align:center;">
-        7 videos · KUEL Conditioning · Use the playlist controls to navigate between episodes
-      </p>
-
-      <div style="margin-top:4rem;">
-        <div class="section-label">Also Available On</div>
-        <h2 class="section-title" style="margin-bottom:1.5rem;">Visit Our <em>YouTube Channel</em></h2>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <a class="btn-primary" href="https://www.youtube.com/playlist?list=PLQY9UNiB9VdWiDhiZUnNiGYkGmZMGMDGC" target="_blank" rel="noopener">
-            Open on YouTube ↗
-          </a>
-          <a class="btn-ghost" onclick="showPage('home')">← Back to Home</a>
-        </div>
+      <p style="font-size:13px;color:var(--text-3);margin-top:1rem;text-align:center;">7 videos · KUEL Conditioning · Use playlist controls to navigate between episodes</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.5rem;">
+        <a class="btn-primary" href="https://www.youtube.com/playlist?list=PLQY9UNiB9VdWiDhiZUnNiGYkGmZMGMDGC" target="_blank">Open on YouTube ↗</a>
+        <div class="btn-ghost" onclick="showPage('home')">← Back to Home</div>
       </div>
     </div>
   </section>
+</div>
 
-</div><!-- /page-videos -->
-
-
-<!-- FOOTER (shared) -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-logo">KUEL Conditioning</div>
   <div class="footer-tagline">Knot a Kult · True Healing · Bay City, MI</div>
   <ul class="footer-links">
     <li><a onclick="showPage('home')">Home</a></li>
-    <li><a onclick="showPage('home'); scrollTo('course')">The Course</a></li>
+    <li><a onclick="showPage('home');scrollSec('course')">The Course</a></li>
+    <li><a onclick="showPage('resources')">Resources</a></li>
     <li><a onclick="showPage('videos')">Videos</a></li>
     <li><a href="mailto:kuelconditioning@gmail.com">Contact</a></li>
   </ul>
-  <div class="footer-bottom">
-    © 2025 KUEL Conditioning · Non-Profit Spiritual Coaching · Bay City, Michigan<br>
-    <span style="color:var(--text-3); font-size:10px; margin-top:4px; display:block;">kuelconditioning@gmail.com · (989) 245-4676</span>
-  </div>
+  <div class="footer-bottom">© 2025 KUEL Conditioning · Non-Profit Spiritual Coaching · Bay City, Michigan<br><span style="font-size:10px;margin-top:4px;display:block;">kuelconditioning@gmail.com · (989) 245-4676</span></div>
 </footer>
 
+<!-- ═══════════════ DOC MODALS ═══════════════ -->
+
+<!-- MODAL: Doc 1 - Kode of Konduct -->
+<div id="modal-doc1" class="doc-modal-overlay">
+  <div class="doc-modal">
+    <div class="doc-modal-toolbar">
+      <span class="doc-modal-title">Document 1 — Kode of Konduct Kontract</span>
+      <div class="doc-modal-actions">
+        <button class="modal-print-btn" onclick="printModal('modal-doc1')">🖨 Print with Answers</button>
+        <button class="modal-close-btn" onclick="closeModal('modal-doc1')">✕</button>
+      </div>
+    </div>
+    <div class="doc-modal-body">
+      <div class="doc-body-title">Kode of Konduct Kontract</div>
+      <div class="doc-body-subtitle">KUEL Conditioning — Fill in all fields below, then print</div>
+
+      <p class="doc-body-text">This Code of Conduct Contract is an agreement between <input class="doc-fill-field wide" placeholder="Spiritual Coach's Name" /> (the "Coach") and <input class="doc-fill-field wide" placeholder="Client's Name" /> (the "Client").</p>
+
+      <div class="doc-section-title">1. Purpose</div>
+      <p class="doc-body-text">The purpose of this Code of Conduct is to establish the ethical guidelines and professional standards that will govern the coaching relationship between the Coach and the Client.</p>
+
+      <div class="doc-section-title">2. Ethical Principles</div>
+      <p class="doc-body-text">The Coach and Client agree to adhere to the following ethical principles:</p>
+      <p class="doc-bullet"><span class="doc-strong">Respect:</span> Treat one another with dignity, respect, and compassion, regardless of their background, beliefs, or circumstances.</p>
+      <p class="doc-bullet"><span class="doc-strong">Confidentiality:</span> Maintain strict confidentiality of all information provided, except with explicit consent outlined in the Confidentiality Agreement.</p>
+      <p class="doc-bullet"><span class="doc-strong">Integrity:</span> Act with honesty, integrity, and transparency in all professional dealings.</p>
+      <p class="doc-bullet"><span class="doc-strong">Beneficence:</span> The Coach will work to promote the well-being of the Client and avoid causing harm.</p>
+      <p class="doc-bullet"><span class="doc-strong">Dual Relationships:</span> The Coach will avoid dual relationships with the Client that could compromise professional judgment.</p>
+      <p class="doc-bullet"><span class="doc-strong">Power Dynamics:</span> Be mindful of the power dynamics in the coaching relationship and avoid exploiting the Client.</p>
+      <p class="doc-bullet"><span class="doc-strong">Conflict of Interest:</span> Disclose any potential conflicts of interest that could affect the coaching relationship.</p>
+
+      <div class="doc-section-title">3. Client Responsibilities</div>
+      <p class="doc-body-text">The Client agrees to:</p>
+      <p class="doc-bullet"><span class="doc-strong">Respect for the Coach:</span> Treat the Coach with dignity, respect, and compassion.</p>
+      <p class="doc-bullet"><span class="doc-strong">Openness and Honesty:</span> Communicate openly and honestly with the Coach, sharing relevant information and feelings. The goal is to see yourself clearly.</p>
+      <p class="doc-bullet"><span class="doc-strong">Active Participation:</span> Actively participate in the coaching process, taking responsibility for their own growth and development.</p>
+      <p class="doc-bullet"><span class="doc-strong">Substance Use:</span> Fast from mind and body altering substances during designated times that could impair judgment or ability to benefit from the coaching process.</p>
+      <p class="doc-bullet"><span class="doc-strong">Respect for Boundaries:</span> Respect the boundaries established by the Coach, both professionally and personally.</p>
+      <p class="doc-bullet"><span class="doc-strong">Scheduling:</span> Respect the Coach's time and make every effort to arrive on time for scheduled sessions.</p>
+      <p class="doc-bullet"><span class="doc-strong">Cancellation Policy:</span> Follow the Coach's cancellation policy and provide timely notice if rescheduling or cancelling.</p>
+
+      <div class="doc-section-title">4. Termination</div>
+      <p class="doc-body-text">Either party may terminate the coaching relationship at any time. The Coach will terminate the coaching relationship when it is no longer beneficial or appropriate.</p>
+
+      <div class="doc-section-title">5. Amendments</div>
+      <p class="doc-body-text">This Code of Conduct may be amended in writing by mutual agreement of both parties.</p>
+      <p class="doc-body-text" style="margin-top:1rem;">By signing below, the Coach and the Client acknowledge that they have read, understood, and agreed to the terms of this Code of Conduct.</p>
+
+      <div class="doc-sig-block">
+        <div class="doc-sig-col">
+          <div class="sig-line"></div>
+          <label>Coach's Signature</label>
+          <input placeholder="Coach's Full Name" />
+          <input type="date" style="margin-top:8px;" />
+        </div>
+        <div class="doc-sig-col">
+          <div class="sig-line"></div>
+          <label>Client's Signature</label>
+          <input placeholder="Client's Full Name" />
+          <input type="date" style="margin-top:8px;" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Doc 2 - Confidentiality Agreement -->
+<div id="modal-doc2" class="doc-modal-overlay">
+  <div class="doc-modal">
+    <div class="doc-modal-toolbar">
+      <span class="doc-modal-title">Document 2 — Confidentiality Agreement</span>
+      <div class="doc-modal-actions">
+        <button class="modal-print-btn" onclick="printModal('modal-doc2')">🖨 Print with Answers</button>
+        <button class="modal-close-btn" onclick="closeModal('modal-doc2')">✕</button>
+      </div>
+    </div>
+    <div class="doc-modal-body">
+      <div class="doc-body-title">Confidentiality Agreement</div>
+      <div class="doc-body-subtitle">KUEL Conditioning — Fill in all fields below, then print</div>
+
+      <p class="doc-body-text">This Confidentiality Agreement ("Agreement") is made and entered into on this <input class="doc-fill-field short" placeholder="day" /> day of <input class="doc-fill-field" placeholder="Month" />, 20<input class="doc-fill-field short" placeholder="YY" />, by and between:</p>
+
+      <p class="doc-body-text" style="margin-top:1rem;"><span class="doc-strong"><input class="doc-fill-field wide" placeholder="Coach's Full Name" /></span>, a professional Spirituality Coach, having their principal place of business at <input class="doc-fill-field wide" placeholder="Business Address" />, hereinafter referred to as the "Coach," and</p>
+
+      <p class="doc-body-text"><span class="doc-strong"><input class="doc-fill-field wide" placeholder="Client's Full Name" /></span>, residing at <input class="doc-fill-field wide" placeholder="Client's Address" />, hereinafter referred to as the "Client."</p>
+
+      <div class="doc-section-title">1. Purpose</div>
+      <p class="doc-body-text">The purpose of this Agreement is to ensure that all information disclosed by the Client to the Coach during the coaching relationship, whether verbal, written, or in any other form, will be kept confidential and used solely for the benefit of the Client within the professional coaching relationship.</p>
+
+      <div class="doc-section-title">2. Confidential Information</div>
+      <p class="doc-body-text">"Confidential Information" means any personal, emotional, spiritual, or psychological information disclosed by the Client during coaching sessions. This includes discussions regarding the Client's spiritual beliefs, personal development goals, life experiences, and any materials shared by the Client that are not publicly known or available.</p>
+
+      <div class="doc-section-title">3. Obligations of the Coach</div>
+      <p class="doc-body-text">The Coach agrees to:</p>
+      <p class="doc-bullet">Maintain the strict confidentiality of all Confidential Information shared by the Client.</p>
+      <p class="doc-bullet">Not disclose any Confidential Information to any third party without the prior written consent of the Client, except as required by law.</p>
+      <p class="doc-bullet">Use Confidential Information solely for the purpose of providing professional spiritual coaching services to the Client.</p>
+
+      <div class="doc-section-title">4. Exceptions to Confidentiality</div>
+      <p class="doc-body-text">This Agreement does not apply to information that:</p>
+      <p class="doc-bullet">Is or becomes publicly available through no fault of the Coach.</p>
+      <p class="doc-bullet">Is disclosed with the prior written consent of the Client.</p>
+      <p class="doc-bullet">Is required to be disclosed by law, court order, or governmental regulation.</p>
+
+      <div class="doc-section-title">5. Term of Confidentiality</div>
+      <p class="doc-body-text">The confidentiality obligations will remain in effect for the duration of the coaching relationship and continue indefinitely after termination of coaching services, unless otherwise specified by law.</p>
+
+      <div class="doc-section-title">6. Breach of Agreement</div>
+      <p class="doc-body-text">In the event of a breach of this Agreement by the Coach, the Client may pursue any legal or equitable remedies available, including injunctive relief.</p>
+
+      <div class="doc-section-title">7. Termination</div>
+      <p class="doc-body-text">Either party may terminate this Agreement with prior written notice. Termination does not release the Coach from confidentiality obligations regarding information disclosed during the term of the Agreement.</p>
+
+      <div class="doc-section-title">8. Governing Law</div>
+      <p class="doc-body-text">This Agreement shall be governed by and construed in accordance with the laws of the state of <input class="doc-fill-field" placeholder="State" />, without regard to its conflict of law principles.</p>
+
+      <div class="doc-section-title">9. Entire Agreement</div>
+      <p class="doc-body-text">This Agreement constitutes the entire understanding between the parties with respect to the subject matter hereof and supersedes all prior discussions, agreements, or understandings of any kind.</p>
+
+      <p class="doc-body-text" style="margin-top:1.5rem;"><span class="doc-strong">IN WITNESS WHEREOF</span>, the parties hereto have executed this Confidentiality Agreement as of the date first above written.</p>
+
+      <div class="doc-sig-block">
+        <div class="doc-sig-col">
+          <div class="sig-line"></div>
+          <label>Coach's Signature</label>
+          <input placeholder="Coach's Full Name" />
+          <input type="date" style="margin-top:8px;" />
+        </div>
+        <div class="doc-sig-col">
+          <div class="sig-line"></div>
+          <label>Client's Signature</label>
+          <input placeholder="Client's Full Name" />
+          <input type="date" style="margin-top:8px;" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Doc 3 - The Way -->
+<div id="modal-doc3" class="doc-modal-overlay">
+  <div class="doc-modal">
+    <div class="doc-modal-toolbar">
+      <span class="doc-modal-title">Document 3 — The Way (Outline)</span>
+      <div class="doc-modal-actions">
+        <button class="modal-print-btn" onclick="printModal('modal-doc3')">🖨 Print with Notes</button>
+        <button class="modal-close-btn" onclick="closeModal('modal-doc3')">✕</button>
+      </div>
+    </div>
+    <div class="doc-modal-body">
+      <div class="doc-body-title">The Way — Outline</div>
+      <div class="doc-body-subtitle">Week 4 · Calcination &amp; Resetting · Add your personal reflections below each principle</div>
+
+      <div class="doc-section-title">Musashi's Nine Principles</div>
+      <p class="doc-body-text">For Musashi, "The Way" applies universally to mastering any skill or challenge. It demands discipline, adaptability, boldness, observation, and spiritual insight to achieve excellence.</p>
+
+      <div style="margin-top:1.25rem;">
+        <p class="doc-body-text"><span class="doc-strong">1. Do not think dishonestly.</span> Be truthful and honest with yourself and others. Develop the ability to see things as they are, not as you want them to be.</p>
+        <textarea class="doc-fill-field wide" placeholder="Your reflection on this principle..." style="width:100%;min-height:48px;border:1.5px solid #c9a84c;border-radius:3px;padding:6px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:4px;"></textarea>
+
+        <p class="doc-body-text" style="margin-top:1rem;"><span class="doc-strong">2. The Way is in training.</span> Mastery comes from consistent practice and dedication. Commit to lifelong learning and improvement as a continuous process.</p>
+        <textarea class="doc-fill-field wide" placeholder="Your reflection..." style="width:100%;min-height:48px;border:1.5px solid #c9a84c;border-radius:3px;padding:6px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:4px;"></textarea>
+
+        <p class="doc-body-text" style="margin-top:1rem;"><span class="doc-strong">3. Become acquainted with every art.</span> Broaden your perspective by learning a variety of disciplines — philosophy, art, science, or other crafts.</p>
+        <textarea class="doc-fill-field wide" placeholder="Your reflection..." style="width:100%;min-height:48px;border:1.5px solid #c9a84c;border-radius:3px;padding:6px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:4px;"></textarea>
+
+        <p class="doc-body-text" style="margin-top:1rem;"><span class="doc-strong">4. Know the Ways of all professions.</span> Understanding how others approach their crafts helps you anticipate challenges and seize opportunities.</p>
+        <textarea class="doc-fill-field wide" placeholder="Your reflection..." style="width:100%;min-height:48px;border:1.5px solid #c9a84c;border-radius:3px;padding:6px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:4px;"></textarea>
+
+        <p class="doc-body-text" style="margin-top:1rem;"><span class="doc-strong">5. Distinguish between gain and loss in worldly matters.</span> Focus on long-term goals and avoid being distracted by short-term gains or setbacks.</p>
+        <textarea class="doc-fill-field wide" placeholder="Your reflection..." style="width:100%;min-height:48px;border:1.5px solid #c9a84c;border-radius:3px;padding:6px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:4px;"></textarea>
+
+        <p class="doc-body-text" style="margin-top:1rem;"><span class="doc-strong">6. Develop intuitive judgment for everything.</span> Trust your instincts but refine them with wisdom and practice for decisive action.</p>
+        <textarea class="doc-fill-field wide" placeholder="Your reflection..." style="width:100%;min-height:48px;border:1.5px solid #c9a84c;border-radius:3px;padding:6px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:4px;"></textarea>
+
+        <p class="doc-body-text" style="margin-top:1rem;"><span class="doc-strong">7. Perceive those things which cannot be seen.</span> Look beyond the surface to understand deeper dynamics — intentions, emotions, underlying patterns.</p>
+        <textarea class="doc-fill-field wide" placeholder="Your reflection..." style="width:100%;min-height:48px;border:1.5px solid #c9a84c;border-radius:3px;padding:6px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:4px;"></textarea>
+
+        <p class="doc-body-text" style="margin-top:1rem;"><span class="doc-strong">8. Pay attention even to trifles.</span> Details matter. Cultivate precision and care in all aspects of your work.</p>
+        <textarea class="doc-fill-field wide" placeholder="Your reflection..." style="width:100%;min-height:48px;border:1.5px solid #c9a84c;border-radius:3px;padding:6px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:4px;"></textarea>
+
+        <p class="doc-body-text" style="margin-top:1rem;"><span class="doc-strong">9. Do nothing which is of no use.</span> Simplify your life and strategy by eliminating distractions and unnecessary actions.</p>
+        <textarea class="doc-fill-field wide" placeholder="Your reflection..." style="width:100%;min-height:48px;border:1.5px solid #c9a84c;border-radius:3px;padding:6px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:4px;"></textarea>
+      </div>
+
+      <div class="doc-section-title" style="margin-top:2rem;">Overall Reflection</div>
+      <p class="doc-body-text">How do these principles apply to your current spiritual conditioning journey? What is your most important takeaway from The Way?</p>
+      <textarea placeholder="Write your overall reflection here..." style="width:100%;min-height:100px;border:1.5px solid #c9a84c;border-radius:3px;padding:8px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:6px;outline:none;"></textarea>
+
+      <div style="margin-top:1.5rem;display:flex;gap:1rem;align-items:center;">
+        <span style="font-size:12px;color:#888;">Name:</span>
+        <input class="doc-fill-field" placeholder="Your name" style="flex:1;" />
+        <span style="font-size:12px;color:#888;">Date:</span>
+        <input type="date" class="doc-fill-field" style="flex:1;" />
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
-  function showPage(id) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page-' + id).classList.add('active');
-    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-    const navEl = document.getElementById('nav-' + id);
-    if (navEl) navEl.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  const el = document.getElementById('nav-' + id);
+  if (el) el.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function scrollSec(id) {
+  setTimeout(() => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 120);
+}
+function openModal(id) {
+  document.getElementById('modal-' + id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  document.getElementById('modal-' + id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+function printModal(modalId) {
+  const modal = document.getElementById(modalId);
+  const body = modal.querySelector('.doc-modal-body').innerHTML;
+  const title = modal.querySelector('.doc-modal-title').textContent;
+  const w = window.open('', '_blank');
+  w.document.write(`<!DOCTYPE html><html><head><title>${title}</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'DM Sans',sans-serif;padding:2rem 3rem;color:#1a1a1a;background:#fff;}
+    .doc-body-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;text-align:center;margin-bottom:.5rem;}
+    .doc-body-subtitle{font-size:11px;text-align:center;color:#666;margin-bottom:2rem;letter-spacing:.05em;}
+    .doc-section-title{font-size:12px;font-weight:600;margin:1.5rem 0 .5rem;text-transform:uppercase;letter-spacing:.08em;}
+    .doc-body-text{font-size:13px;line-height:1.8;color:#333;margin-bottom:.6rem;}
+    .doc-fill-field{display:inline-block;border:none;border-bottom:1px solid #333;background:transparent;font-size:13px;font-family:'DM Sans',sans-serif;color:#1a1a1a;padding:2px 4px;min-width:160px;}
+    .doc-fill-field.wide{min-width:220px;}
+    .doc-fill-field.short{min-width:60px;}
+    .doc-bullet{font-size:13px;line-height:1.8;color:#333;padding-left:1.25rem;position:relative;margin-bottom:.3rem;}
+    .doc-bullet::before{content:'—';position:absolute;left:0;color:#8a6f2e;}
+    .doc-strong{font-weight:600;}
+    .doc-sig-block{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid #ddd;}
+    .doc-sig-col .sig-line{border-bottom:1px solid #333;height:40px;margin-bottom:6px;}
+    .doc-sig-col label{font-size:11px;color:#666;}
+    .doc-sig-col input{width:100%;border:none;border-bottom:1px solid #333;background:transparent;font-size:13px;padding:2px 4px;color:#1a1a1a;}
+    textarea{width:100%;border:1px solid #ccc;padding:6px;font-size:13px;font-family:'DM Sans',sans-serif;resize:none;background:rgba(201,168,76,.04);}
+    @media print{body{padding:1rem 2rem;}}
+  </style></head><body>${body}<script>window.onload=function(){window.print();}<\/script></body></html>`);
+  w.document.close();
+}
+// Close modal on overlay click
+document.querySelectorAll('.doc-modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === this) closeModal(this.id.replace('modal-',''));
+  });
+});
+// ESC key
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.doc-modal-overlay.open').forEach(m => {
+      closeModal(m.id.replace('modal-',''));
+    });
   }
-
-  function scrollTo(id) {
-    setTimeout(() => {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
-  }
-
-  function toggleMobileMenu() {
-    const links = document.querySelector('.nav-links');
-    const cta = document.querySelector('.nav-cta');
-    const showing = links.style.display === 'flex';
-    if (showing) {
-      links.style.display = '';
-      cta.style.display = '';
-    } else {
-      links.style.cssText = 'display:flex; flex-direction:column; position:fixed; top:70px; left:0; right:0; background:rgba(14,15,13,0.97); padding:1.5rem 2rem; gap:1.25rem; border-bottom:0.5px solid rgba(201,168,76,0.18);';
-      cta.style.cssText = 'display:block; position:fixed; top:calc(70px + 200px); left:2rem; right:2rem; text-align:center;';
-    }
-  }
+});
 </script>
 </body>
 </html>
