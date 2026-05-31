@@ -202,7 +202,45 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
   <div class="hero">
     <div class="hero-bg"></div>
     <div class="hero-eyebrow">Bay City, MI · Spiritual Coaching · Non-Profit</div>
-    <div class="hero-symbol">K</div>
+    <div style="width:clamp(140px,18vw,200px);margin:0 auto 1.5rem;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+        <circle cx="250" cy="250" r="245" fill="#f0e8c8" stroke="#2a2018" stroke-width="3"/>
+        <polygon points="250,30 470,250 250,470 30,250" fill="none" stroke="#2a2018" stroke-width="4.5" stroke-linejoin="round"/>
+        <line x1="220" y1="58"  x2="250" y2="30"  stroke="#2a2018" stroke-width="4" stroke-linecap="round"/>
+        <line x1="280" y1="58"  x2="250" y2="30"  stroke="#2a2018" stroke-width="4" stroke-linecap="round"/>
+        <line x1="442" y1="220" x2="470" y2="250" stroke="#2a2018" stroke-width="4" stroke-linecap="round"/>
+        <line x1="442" y1="280" x2="470" y2="250" stroke="#2a2018" stroke-width="4" stroke-linecap="round"/>
+        <line x1="220" y1="442" x2="250" y2="470" stroke="#2a2018" stroke-width="4" stroke-linecap="round"/>
+        <line x1="280" y1="442" x2="250" y2="470" stroke="#2a2018" stroke-width="4" stroke-linecap="round"/>
+        <line x1="58"  y1="220" x2="30"  y2="250" stroke="#2a2018" stroke-width="4" stroke-linecap="round"/>
+        <line x1="58"  y1="280" x2="30"  y2="250" stroke="#2a2018" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="360" cy="140" r="6" fill="#2a2018"/>
+        <circle cx="360" cy="360" r="6" fill="#2a2018"/>
+        <circle cx="140" cy="360" r="6" fill="#2a2018"/>
+        <circle cx="140" cy="140" r="6" fill="#2a2018"/>
+        <line x1="346" y1="126" x2="374" y2="154" stroke="#2a2018" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="374" y1="126" x2="346" y2="154" stroke="#2a2018" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="346" y1="346" x2="374" y2="374" stroke="#2a2018" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="374" y1="346" x2="346" y2="374" stroke="#2a2018" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="126" y1="346" x2="154" y2="374" stroke="#2a2018" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="154" y1="346" x2="126" y2="374" stroke="#2a2018" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="126" y1="126" x2="154" y2="154" stroke="#2a2018" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="154" y1="126" x2="126" y2="154" stroke="#2a2018" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="250" cy="95"  r="6" fill="#2a2018"/>
+        <circle cx="405" cy="250" r="6" fill="#2a2018"/>
+        <circle cx="250" cy="405" r="6" fill="#2a2018"/>
+        <circle cx="95"  cy="250" r="6" fill="#2a2018"/>
+        <circle cx="250" cy="258" r="10" fill="#2a2018"/>
+        <circle cx="250" cy="95"  r="6" fill="#2a2018"/>
+        <line x1="250" y1="258" x2="258" y2="148" stroke="#2a2018" stroke-width="9" stroke-linecap="round"/>
+        <line x1="250" y1="258" x2="318" y2="182" stroke="#2a2018" stroke-width="9" stroke-linecap="round"/>
+        <line x1="250" y1="258" x2="308" y2="235" stroke="#2a2018" stroke-width="9" stroke-linecap="round"/>
+        <line x1="250" y1="258" x2="188" y2="230" stroke="#2a2018" stroke-width="9" stroke-linecap="round"/>
+        <line x1="250" y1="258" x2="196" y2="330" stroke="#2a2018" stroke-width="9" stroke-linecap="round"/>
+        <line x1="250" y1="258" x2="244" y2="348" stroke="#2a2018" stroke-width="9" stroke-linecap="round"/>
+        <line x1="250" y1="258" x2="306" y2="342" stroke="#2a2018" stroke-width="9" stroke-linecap="round"/>
+      </svg>
+    </div>
     <h1>True <em>Healing</em><br>Starts Within</h1>
     <p class="hero-sub">KUEL Conditioning is a non-profit spiritual coaching program helping individuals reconnect with themselves, resolve unmet needs, and discover lasting inner peace — across mind, body, and spirit.</p>
     <div class="hero-actions">
@@ -344,39 +382,35 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
           </div>
         </div>
 
-        <!-- DOC 3 -->
+        <!-- DOC 3 (Needs-Goals) -->
         <div class="doc-featured-card">
-          <div class="doc-featured-badge">✦ Featured · Week 4</div>
+          <div class="doc-featured-badge">✦ Featured · Week 1</div>
           <div class="doc-featured-body">
-            <div class="doc-num">Document 3</div>
-            <h3>The Way — Outline</h3>
-            <p>Musashi's 9 principles, philosophical frameworks from Buddha, Confucius, and Plato — foundational wisdom for the Calcination &amp; Resetting week of the course.</p>
+            <div class="doc-num">Document 4</div>
+            <h3>Needs Assessment &amp; Goal Setting</h3>
+            <p>Maslow's hierarchy self-assessment — score each need 1–10, identify gaps, then set daily, monthly, yearly &amp; long-term goals to manifest your best life.</p>
             <div class="doc-featured-actions">
-              <button class="doc-open-btn" onclick="openModal('doc3')">✏ Open &amp; Reflect</button>
-              <a class="doc-link-btn" href="https://docs.google.com/document/d/1bAWWlb6sSPKD279LLPwjHJJhGA_2mmiBhNyLILMtL04/edit" target="_blank">Open in Drive ↗</a>
+              <button class="doc-open-btn" onclick="openModal('doc4')">✏ Open &amp; Fill</button>
+              <a class="doc-link-btn" href="https://drive.google.com/file/d/1vsRHALVx3J_lJWnPNAvaYBJa1po3kdmP/view" target="_blank">Open in Drive ↗</a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- DOCS 4-10 -->
+      <!-- DOCS 3 & 5-10 -->
       <div style="margin-top:4rem;">
         <div class="section-label">Full Resource Library</div>
-        <h2 class="section-title">Documents <em>4 – 10</em></h2>
-        <p class="section-body" style="margin-bottom:.5rem;">Click any document to open it in Google Drive. Make sure files are set to "Anyone with the link can view" in Drive so visitors can access them.</p>
-        <div class="doc-note" style="background:rgba(201,168,76,.08);border-left:3px solid var(--gold);padding:10px 14px;border-radius:0 3px 3px 0;margin:1rem 0 1.5rem;font-size:12px;color:var(--text-2);">
-          💡 <strong style="color:var(--gold);">Tip:</strong> To make these links work for all visitors, open each file in Google Drive → click Share → change to "Anyone with the link can view."
-        </div>
+        <h2 class="section-title">Documents <em>3 &amp; 5 – 10</em></h2>
 
         <div class="resources-list">
           <div class="resource-row">
-            <div class="resource-num">4</div>
+            <div class="resource-num">3</div>
             <div class="resource-info">
-              <h4>Needs-Goals Worksheets</h4>
-              <p>Maslow's hierarchy self-assessment, needs scoring, goal setting — daily, monthly, yearly &amp; long-term dreams</p>
+              <h4>The Way — Outline</h4>
+              <p>Musashi's 9 principles, philosophical frameworks from Buddha, Confucius, and Plato — foundational wisdom for Week 4</p>
             </div>
-            <span class="resource-type">PDF · Worksheet</span>
-            <a class="resource-link" href="https://drive.google.com/file/d/1vsRHALVx3J_lJWnPNAvaYBJa1po3kdmP/view" target="_blank">Open ↗</a>
+            <span class="resource-type">Doc · Outline</span>
+            <a class="resource-link" href="https://docs.google.com/document/d/1bAWWlb6sSPKD279LLPwjHJJhGA_2mmiBhNyLILMtL04/edit" target="_blank">Open ↗</a>
           </div>
           <div class="resource-row">
             <div class="resource-num">5</div>
@@ -623,55 +657,113 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
   </div>
 </div>
 
-<!-- MODAL: Doc 3 - The Way -->
-<div id="modal-doc3" class="doc-modal-overlay">
+<!-- MODAL: Doc 4 - Needs Assessment & Goal Setting -->
+<div id="modal-doc4" class="doc-modal-overlay">
   <div class="doc-modal">
     <div class="doc-modal-toolbar">
-      <span class="doc-modal-title">Document 3 — The Way (Outline)</span>
+      <span class="doc-modal-title">Document 4 — Needs Assessment &amp; Goal Setting</span>
       <div class="doc-modal-actions">
-        <button class="modal-print-btn" onclick="printModal('modal-doc3')">🖨 Print with Notes</button>
-        <button class="modal-close-btn" onclick="closeModal('modal-doc3')">✕</button>
+        <button class="modal-print-btn" onclick="printModal('modal-doc4')">🖨 Print with Answers</button>
+        <button class="modal-close-btn" onclick="closeModal('modal-doc4')">✕</button>
       </div>
     </div>
     <div class="doc-modal-body">
-      <div class="doc-body-title">The Way — Outline</div>
-      <div class="doc-body-subtitle">Week 4 · Calcination &amp; Resetting · Add your personal reflections below each principle</div>
+      <div class="doc-body-title">Needs Assessment</div>
+      <div class="doc-body-subtitle">KUEL Conditioning · Score each need 1–10, then build your goals below</div>
 
-      <div class="doc-section-title">Musashi's Nine Principles</div>
-      <p class="doc-body-text">For Musashi, "The Way" applies universally to mastering any skill or challenge. It demands discipline, adaptability, boldness, observation, and spiritual insight to achieve excellence.</p>
+      <p class="doc-body-text">Maslow's hierarchy of needs suggests people are motivated to fulfill fundamental needs in a hierarchical order — starting with basic physiological and safety needs before moving to higher-level needs for belonging, esteem, and self-actualization.</p>
+      <p class="doc-body-text" style="font-style:italic;color:#8a6f2e;margin-top:.5rem;">How well are you meeting these needs? Score each 1–10.</p>
 
-      <div style="margin-top:1.25rem;">
-        <p class="doc-body-text"><span class="doc-strong">1. Do not think dishonestly.</span> Be truthful and honest with yourself and others. Develop the ability to see things as they are, not as you want them to be.</p>
-        <textarea class="doc-fill-field wide" placeholder="Your reflection on this principle..." style="width:100%;min-height:48px;border:1.5px solid #c9a84c;border-radius:3px;padding:6px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:4px;"></textarea>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem;">
 
-        <p class="doc-body-text" style="margin-top:1rem;"><span class="doc-strong">2. The Way is in training.</span> Mastery comes from consistent practice and dedication. Commit to lifelong learning and improvement as a continuous process.</p>
-        <textarea class="doc-fill-field wide" placeholder="Your reflection..." style="width:100%;min-height:48px;border:1.5px solid #c9a84c;border-radius:3px;padding:6px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:4px;"></textarea>
+        <div style="background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.2);border-radius:4px;padding:1.25rem;">
+          <div class="doc-section-title" style="margin-top:0;">Physical Needs</div>
+          <p class="doc-body-text" style="margin-bottom:.75rem;font-size:12px;color:#666;">Overall Score: <input class="doc-fill-field short" placeholder="1–10" /></p>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Breathing</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Water</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Food</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Sleep</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Clothing</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Shelter</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+          </div>
+        </div>
 
-        <p class="doc-body-text" style="margin-top:1rem;"><span class="doc-strong">3. Become acquainted with every art.</span> Broaden your perspective by learning a variety of disciplines — philosophy, art, science, or other crafts.</p>
-        <textarea class="doc-fill-field wide" placeholder="Your reflection..." style="width:100%;min-height:48px;border:1.5px solid #c9a84c;border-radius:3px;padding:6px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:4px;"></textarea>
+        <div style="background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.2);border-radius:4px;padding:1.25rem;">
+          <div class="doc-section-title" style="margin-top:0;">Security Needs</div>
+          <p class="doc-body-text" style="margin-bottom:.75rem;font-size:12px;color:#666;">Overall Score: <input class="doc-fill-field short" placeholder="1–10" /></p>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Health</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Personal Safety</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Employment</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Property</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Resources</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+          </div>
+        </div>
 
-        <p class="doc-body-text" style="margin-top:1rem;"><span class="doc-strong">4. Know the Ways of all professions.</span> Understanding how others approach their crafts helps you anticipate challenges and seize opportunities.</p>
-        <textarea class="doc-fill-field wide" placeholder="Your reflection..." style="width:100%;min-height:48px;border:1.5px solid #c9a84c;border-radius:3px;padding:6px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:4px;"></textarea>
+        <div style="background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.2);border-radius:4px;padding:1.25rem;">
+          <div class="doc-section-title" style="margin-top:0;">Belonging Needs</div>
+          <p class="doc-body-text" style="margin-bottom:.75rem;font-size:12px;color:#666;">Overall Score: <input class="doc-fill-field short" placeholder="1–10" /></p>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Friendship</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Family</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Community</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Intimacy</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Sense of Connection</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+          </div>
+        </div>
 
-        <p class="doc-body-text" style="margin-top:1rem;"><span class="doc-strong">5. Distinguish between gain and loss in worldly matters.</span> Focus on long-term goals and avoid being distracted by short-term gains or setbacks.</p>
-        <textarea class="doc-fill-field wide" placeholder="Your reflection..." style="width:100%;min-height:48px;border:1.5px solid #c9a84c;border-radius:3px;padding:6px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:4px;"></textarea>
+        <div style="background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.2);border-radius:4px;padding:1.25rem;">
+          <div class="doc-section-title" style="margin-top:0;">Esteem Needs</div>
+          <p class="doc-body-text" style="margin-bottom:.75rem;font-size:12px;color:#666;">Overall Score: <input class="doc-fill-field short" placeholder="1–10" /></p>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Achievements</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Self-Respect</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>External Admiration</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Strength</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Confidence</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Freedom</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+          </div>
+        </div>
 
-        <p class="doc-body-text" style="margin-top:1rem;"><span class="doc-strong">6. Develop intuitive judgment for everything.</span> Trust your instincts but refine them with wisdom and practice for decisive action.</p>
-        <textarea class="doc-fill-field wide" placeholder="Your reflection..." style="width:100%;min-height:48px;border:1.5px solid #c9a84c;border-radius:3px;padding:6px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:4px;"></textarea>
-
-        <p class="doc-body-text" style="margin-top:1rem;"><span class="doc-strong">7. Perceive those things which cannot be seen.</span> Look beyond the surface to understand deeper dynamics — intentions, emotions, underlying patterns.</p>
-        <textarea class="doc-fill-field wide" placeholder="Your reflection..." style="width:100%;min-height:48px;border:1.5px solid #c9a84c;border-radius:3px;padding:6px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:4px;"></textarea>
-
-        <p class="doc-body-text" style="margin-top:1rem;"><span class="doc-strong">8. Pay attention even to trifles.</span> Details matter. Cultivate precision and care in all aspects of your work.</p>
-        <textarea class="doc-fill-field wide" placeholder="Your reflection..." style="width:100%;min-height:48px;border:1.5px solid #c9a84c;border-radius:3px;padding:6px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:4px;"></textarea>
-
-        <p class="doc-body-text" style="margin-top:1rem;"><span class="doc-strong">9. Do nothing which is of no use.</span> Simplify your life and strategy by eliminating distractions and unnecessary actions.</p>
-        <textarea class="doc-fill-field wide" placeholder="Your reflection..." style="width:100%;min-height:48px;border:1.5px solid #c9a84c;border-radius:3px;padding:6px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:4px;"></textarea>
+        <div style="background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.2);border-radius:4px;padding:1.25rem;grid-column:1/-1;">
+          <div class="doc-section-title" style="margin-top:0;">Self-Actualization</div>
+          <p class="doc-body-text" style="margin-bottom:.75rem;font-size:12px;color:#666;">Overall Score: <input class="doc-fill-field short" placeholder="1–10" /></p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Morality</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Acceptance</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Creativity</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Find Meaning in Life</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Live with Purpose</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Being Present</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;"><span>Realize Fullest Potential</span><input class="doc-fill-field short" placeholder="1–10" style="min-width:60px;text-align:center;" /></div>
+          </div>
+        </div>
       </div>
 
-      <div class="doc-section-title" style="margin-top:2rem;">Overall Reflection</div>
-      <p class="doc-body-text">How do these principles apply to your current spiritual conditioning journey? What is your most important takeaway from The Way?</p>
-      <textarea placeholder="Write your overall reflection here..." style="width:100%;min-height:100px;border:1.5px solid #c9a84c;border-radius:3px;padding:8px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);margin-top:6px;outline:none;"></textarea>
+      <p class="doc-body-text" style="margin-top:1.5rem;padding:10px 14px;background:rgba(201,168,76,.08);border-left:3px solid #c9a84c;border-radius:0 3px 3px 0;">If any of these fall below a 7 they can potentially be the cause of physical or emotional distress. Once you identify gaps, create a plan to ensure all your needs get met on the path to lasting happiness.</p>
+
+      <div class="doc-section-title" style="margin-top:2rem;">Areas to Improve (scores below 7)</div>
+      <textarea placeholder="List the needs where you scored below 7 and briefly describe why..." style="width:100%;min-height:70px;border:1.5px solid #c9a84c;border-radius:3px;padding:8px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);outline:none;"></textarea>
+
+      <div class="doc-body-title" style="font-size:20px;margin-top:2.5rem;">Goal Setting</div>
+      <p class="doc-body-text" style="margin-top:.5rem;">Goals should help meet your needs, improve yourself, and elevate your community. Set 3 or more goals for each timeframe below.</p>
+
+      <div class="doc-section-title" style="margin-top:1.5rem;">Dreams to Manifest</div>
+      <p class="doc-body-text" style="font-size:12px;color:#666;margin-bottom:.5rem;">Visions of your best life to create in reality.</p>
+      <textarea placeholder="Write your dreams and visions here..." style="width:100%;min-height:80px;border:1.5px solid #c9a84c;border-radius:3px;padding:8px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);outline:none;"></textarea>
+
+      <div class="doc-section-title" style="margin-top:1.25rem;">Long Term Goals</div>
+      <p class="doc-body-text" style="font-size:12px;color:#666;margin-bottom:.5rem;">Goals to add to shorter term goals in due time.</p>
+      <textarea placeholder="1. &#10;2. &#10;3. " style="width:100%;min-height:80px;border:1.5px solid #c9a84c;border-radius:3px;padding:8px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);outline:none;"></textarea>
+
+      <div class="doc-section-title" style="margin-top:1.25rem;">Short Term Goals</div>
+      <p class="doc-body-text" style="font-size:12px;color:#666;margin-bottom:.5rem;">Prioritize what you must or might complete in the near future.</p>
+      <textarea placeholder="1. &#10;2. &#10;3. " style="width:100%;min-height:80px;border:1.5px solid #c9a84c;border-radius:3px;padding:8px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);outline:none;"></textarea>
+
+      <div class="doc-section-title" style="margin-top:1.25rem;">Daily Tasks</div>
+      <p class="doc-body-text" style="font-size:12px;color:#666;margin-bottom:.5rem;">Better your quality of life through responsibility to self and community. Reset daily.</p>
+      <textarea placeholder="1. &#10;2. &#10;3. " style="width:100%;min-height:80px;border:1.5px solid #c9a84c;border-radius:3px;padding:8px;resize:vertical;font-family:'DM Sans',sans-serif;font-size:13px;color:#1a1a1a;background:rgba(201,168,76,.04);outline:none;"></textarea>
 
       <div style="margin-top:1.5rem;display:flex;gap:1rem;align-items:center;">
         <span style="font-size:12px;color:#888;">Name:</span>
@@ -741,6 +833,7 @@ document.querySelectorAll('.doc-modal-overlay').forEach(overlay => {
     if (e.target === this) closeModal(this.id.replace('modal-',''));
   });
 });
+
 // ESC key
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
