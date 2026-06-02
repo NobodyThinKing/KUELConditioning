@@ -189,7 +189,7 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
   <div class="nav-logo" onclick="showPage('home')">KUEL <span>Conditioning</span></div>
   <ul class="nav-links">
     <li><a id="nav-home" class="active" onclick="showPage('home')">Home</a></li>
-    <li><a onclick="showPage('home');scrollSec('course')">The Course</a></li>
+    <li><a id="nav-course" onclick="showPage('course')">The Course</a></li>
     <li><a id="nav-resources" onclick="showPage('resources')">Resources</a></li>
     <li><a id="nav-videos" onclick="showPage('videos')">Videos</a></li>
     <li><a onclick="showPage('home');scrollSec('about')">About</a></li>
@@ -209,11 +209,7 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
     </div>
     <h1>True <em>Healing</em><br>Starts Within</h1>
     <p class="hero-sub">KUEL Conditioning is a non-profit spiritual coaching program helping individuals reconnect with themselves, resolve unmet needs, and discover lasting inner peace — across mind, body, and spirit.</p>
-    <div class="hero-actions">
-      <div class="btn-primary" onclick="scrollSec('course')">Explore the 6-Week Course</div>
-      <div class="btn-ghost" onclick="showPage('resources')">Download Resources</div>
-    </div>
-    <div class="hero-scroll">Scroll</div>
+
   </div>
 
   <section class="mission" id="mission">
@@ -241,21 +237,6 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
         <div class="pillar"><div class="pillar-icon">B</div><h3>Body</h3><p>BMI, nutrition, exercise, sleep, general living, and all physical needs that form the foundation of wellbeing.</p></div>
         <div class="pillar"><div class="pillar-icon">M</div><h3>Mind</h3><p>Attention, focus, repetitive thought patterns, cognitive restructuring, and mental maintenance practices.</p></div>
         <div class="pillar"><div class="pillar-icon">S</div><h3>Spirit</h3><p>Connection to self, others, and nature. Esteem, emotional intelligence, inner fortitude, and life energy.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="course" id="course">
-    <div class="section-inner">
-      <div class="section-label">The Program</div>
-      <h2 class="section-title">KUEL Konditioning Kourse<br><em>6-Week Transformation</em></h2>
-      <div class="weeks-grid">
-        <div class="week-card"><div class="week-num">Week 01</div><h3>Introduction &amp; Assessment</h3><ul><li>Sign contracts &amp; expectations</li><li>Mind / Body / Spirit self-assessment</li><li>Goal &amp; intention setting</li><li>Journaling &amp; reflection routines</li></ul></div>
-        <div class="week-card"><div class="week-num">Week 02</div><h3>Shadow Work</h3><ul><li>Identify triggers &amp; habitual responses</li><li>Cognitive Behavioral Therapy tools</li><li>7-step problem-solving process</li><li>Esteem, boundaries &amp; mantra writing</li></ul></div>
-        <div class="week-card"><div class="week-num">Week 03</div><h3>Wakening &amp; Spiritual Warfare</h3><ul><li>Deep dive into the psyche</li><li>Brain waves &amp; perception</li><li>Art of War principles</li><li>Law of Attraction</li></ul></div>
-        <div class="week-card"><div class="week-num">Week 04</div><h3>Calcination &amp; Resetting</h3><ul><li>Remaking the soul</li><li>Cognitive restructuring</li><li>The Way — philosophical framework</li><li>Support team &amp; safety planning</li></ul></div>
-        <div class="week-card"><div class="week-num">Week 05</div><h3>Detox &amp; Nature</h3><ul><li>Energy, vibration &amp; frequency</li><li>Fasting &amp; alkaline nutrition</li><li>Nature immersion &amp; grounding</li><li>Mushroom Therapy experience</li></ul></div>
-        <div class="week-card"><div class="week-num">Week 06</div><h3>Test &amp; Evaluate</h3><ul><li>Integration &amp; reflection</li><li>Evaluate at Day 2, 7, 30, 90, 180, 360</li><li>Re-assess needs &amp; reset goals</li><li>Schedule ongoing follow-ups</li></ul></div>
       </div>
     </div>
   </section>
@@ -297,6 +278,31 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
       <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
         <a class="btn-primary" href="mailto:kuelconditioning@gmail.com">Email Us Today</a>
         <div class="btn-ghost" onclick="showPage('resources')">View Resources</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════ COURSE PAGE ═══════════════ -->
+<div id="page-course" class="page">
+  <div class="videos-hero">
+    <div class="section-label">The Program</div>
+    <h1 class="section-title" style="max-width:700px;margin:0 auto .75rem;">KUEL Konditioning Kourse<br><em>6-Week Transformation</em></h1>
+    <p class="section-body" style="margin:0 auto;">A structured, deeply personal journey through self-assessment, shadow work, spiritual awakening, and lasting reset. Each week builds on the last — guiding you from where you are to where you're capable of being.</p>
+  </div>
+  <section>
+    <div class="section-inner">
+      <div class="weeks-grid">
+        <div class="week-card"><div class="week-num">Week 01</div><h3>Introduction &amp; Assessment</h3><ul><li>Sign contracts &amp; expectations</li><li>Mind / Body / Spirit self-assessment</li><li>Goal &amp; intention setting</li><li>Journaling &amp; reflection routines</li></ul></div>
+        <div class="week-card"><div class="week-num">Week 02</div><h3>Shadow Work</h3><ul><li>Identify triggers &amp; habitual responses</li><li>Cognitive Behavioral Therapy tools</li><li>7-step problem-solving process</li><li>Esteem, boundaries &amp; mantra writing</li></ul></div>
+        <div class="week-card"><div class="week-num">Week 03</div><h3>Wakening &amp; Spiritual Warfare</h3><ul><li>Deep dive into the psyche</li><li>Brain waves &amp; perception</li><li>Art of War principles</li><li>Law of Attraction</li></ul></div>
+        <div class="week-card"><div class="week-num">Week 04</div><h3>Calcination &amp; Resetting</h3><ul><li>Remaking the soul</li><li>Cognitive restructuring</li><li>The Way — philosophical framework</li><li>Support team &amp; safety planning</li></ul></div>
+        <div class="week-card"><div class="week-num">Week 05</div><h3>Detox &amp; Nature</h3><ul><li>Energy, vibration &amp; frequency</li><li>Fasting &amp; alkaline nutrition</li><li>Nature immersion &amp; grounding</li><li>Mushroom Therapy experience</li></ul></div>
+        <div class="week-card"><div class="week-num">Week 06</div><h3>Test &amp; Evaluate</h3><ul><li>Integration &amp; reflection</li><li>Evaluate at Day 2, 7, 30, 90, 180, 360</li><li>Re-assess needs &amp; reset goals</li><li>Schedule ongoing follow-ups</li></ul></div>
+      </div>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:3rem;">
+        <a class="btn-primary" href="mailto:kuelconditioning@gmail.com">Enroll Today</a>
+        <div class="btn-ghost" onclick="showPage('resources')">View Resources ↗</div>
       </div>
     </div>
   </section>
@@ -476,7 +482,7 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
   <div class="footer-tagline">Knot a Kult · True Healing · Bay City, MI</div>
   <ul class="footer-links">
     <li><a onclick="showPage('home')">Home</a></li>
-    <li><a onclick="showPage('home');scrollSec('course')">The Course</a></li>
+    <li><a onclick="showPage('course')">The Course</a></li>
     <li><a onclick="showPage('resources')">Resources</a></li>
     <li><a onclick="showPage('videos')">Videos</a></li>
     <li><a href="mailto:kuelconditioning@gmail.com">Contact</a></li>
