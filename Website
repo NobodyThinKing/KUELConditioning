@@ -274,9 +274,12 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
     <div class="section-inner">
       <div class="section-label">Ready to Begin?</div>
       <h2 class="section-title">Your <em>Transformation</em> Starts Here</h2>
-      <p class="section-body" style="margin:0 auto 2rem;">Take the first step toward true healing. Reach out to learn more about the KUEL Konditioning Kourse.</p>
+      <p class="section-body" style="margin:0 auto 2rem;">The KUEL A.I. Agent leverages the Human Hierarchy of Needs based on your self-assessment, then pulls your wants and goals so that it can give you specific advice to help you move towards your best life. The Agent has a hedonistic approach to happiness where it is important to make the most out of life without harming yourself or others.</p>
       <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-        <a class="btn-primary" href="mailto:kuelconditioning@gmail.com">Email Us Today</a>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <a class="btn-primary" href="https://claude.ai/public/artifacts/df7873d5-05fc-41a1-adbc-8b7f41def6b2" target="_blank" rel="noopener">KUEL AI Agent ↗</a>
+          <span style="font-size:11px;color:var(--text-3);font-style:italic;">(free claude.ai account required)</span>
+        </div>
         <div class="btn-ghost" onclick="showPage('resources')">View Resources</div>
       </div>
     </div>
