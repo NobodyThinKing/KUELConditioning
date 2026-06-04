@@ -195,6 +195,22 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
     <li><a id="nav-coach" onclick="showPage('coach')">Life Coach</a></li>
   </ul>
   <div class="nav-cta" onclick="showPage('coach')">Life Coach</div>
+
+  <!-- Hamburger dropdown -->
+  <div style="position:relative;margin-left:12px;">
+    <button id="hamburger-btn" onclick="toggleDropdown()" aria-label="Menu" style="background:transparent;border:0.5px solid rgba(201,168,76,0.3);border-radius:var(--radius);width:38px;height:38px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;padding:0;transition:border-color .2s;">
+      <span style="display:block;width:18px;height:1.5px;background:var(--text-2);border-radius:2px;transition:.2s;"></span>
+      <span style="display:block;width:18px;height:1.5px;background:var(--text-2);border-radius:2px;transition:.2s;"></span>
+      <span style="display:block;width:18px;height:1.5px;background:var(--text-2);border-radius:2px;transition:.2s;"></span>
+    </button>
+    <div id="dropdown-menu" style="display:none;position:absolute;top:calc(100% + 10px);right:0;background:rgba(14,15,13,0.98);border:0.5px solid rgba(201,168,76,0.25);border-radius:var(--radius);min-width:180px;z-index:999;backdrop-filter:blur(12px);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.5);">
+      <div onclick="showPage('home');toggleDropdown()" style="padding:12px 20px;font-size:13px;color:var(--text-2);cursor:pointer;letter-spacing:.06em;transition:background .15s;border-bottom:0.5px solid rgba(201,168,76,0.08);" onmouseover="this.style.background='rgba(201,168,76,0.08)';this.style.color='var(--gold)'" onmouseout="this.style.background='transparent';this.style.color='var(--text-2)'">Home</div>
+      <div onclick="showPage('course');toggleDropdown()" style="padding:12px 20px;font-size:13px;color:var(--text-2);cursor:pointer;letter-spacing:.06em;transition:background .15s;border-bottom:0.5px solid rgba(201,168,76,0.08);" onmouseover="this.style.background='rgba(201,168,76,0.08)';this.style.color='var(--gold)'" onmouseout="this.style.background='transparent';this.style.color='var(--text-2)'">The Course</div>
+      <div onclick="showPage('resources');toggleDropdown()" style="padding:12px 20px;font-size:13px;color:var(--text-2);cursor:pointer;letter-spacing:.06em;transition:background .15s;border-bottom:0.5px solid rgba(201,168,76,0.08);" onmouseover="this.style.background='rgba(201,168,76,0.08)';this.style.color='var(--gold)'" onmouseout="this.style.background='transparent';this.style.color='var(--text-2)'">Resources</div>
+      <div onclick="showPage('videos');toggleDropdown()" style="padding:12px 20px;font-size:13px;color:var(--text-2);cursor:pointer;letter-spacing:.06em;transition:background .15s;border-bottom:0.5px solid rgba(201,168,76,0.08);" onmouseover="this.style.background='rgba(201,168,76,0.08)';this.style.color='var(--gold)'" onmouseout="this.style.background='transparent';this.style.color='var(--text-2)'">Videos</div>
+      <div onclick="showPage('coach');toggleDropdown()" style="padding:12px 20px;font-size:13px;color:var(--gold);cursor:pointer;letter-spacing:.06em;font-weight:500;transition:background .15s;" onmouseover="this.style.background='rgba(201,168,76,0.08)'" onmouseout="this.style.background='transparent'">Life Coach</div>
+    </div>
+  </div>
 </nav>
 
 <!-- ═══════════════ HOME PAGE ═══════════════ -->
@@ -303,7 +319,6 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
         <div class="doc-featured-card">
           <div class="doc-featured-badge">✦ Featured · Week 1</div>
           <div class="doc-featured-body">
-            <div class="doc-num">Document 1</div>
             <h3>Kode of Konduct Kontract</h3>
             <p>The foundational agreement between Coach and Client outlining ethical principles, responsibilities, boundaries, and expectations for the coaching relationship.</p>
             <div class="doc-featured-actions">
@@ -317,7 +332,6 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
         <div class="doc-featured-card">
           <div class="doc-featured-badge">✦ Featured · Week 1</div>
           <div class="doc-featured-body">
-            <div class="doc-num">Document 2</div>
             <h3>Confidentiality Agreement</h3>
             <p>A formal agreement ensuring all personal, emotional, spiritual, and psychological information shared during coaching sessions remains strictly confidential.</p>
             <div class="doc-featured-actions">
@@ -331,7 +345,6 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
         <div class="doc-featured-card">
           <div class="doc-featured-badge">✦ Featured · Week 1</div>
           <div class="doc-featured-body">
-            <div class="doc-num">Document 4</div>
             <h3>Needs Assessment &amp; Goal Setting</h3>
             <p>Maslow's hierarchy self-assessment — score each need 1–10, identify gaps, then set daily, monthly, yearly &amp; long-term goals to manifest your best life.</p>
             <div class="doc-featured-actions">
@@ -344,56 +357,47 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
 
       <!-- DOCS 3 & 5-10 -->
       <div style="margin-top:4rem;">
-        <div class="section-label">Full Resource Library</div>
-        <h2 class="section-title">Documents <em>3 &amp; 5 – 10</em></h2>
         <div class="resources-list">
           <div class="resource-row">
-            <div class="resource-num">3</div>
-            <div class="resource-info"><h4>The Way — Outline</h4><p>Musashi's 9 principles, philosophical frameworks from Buddha, Confucius, and Plato — foundational wisdom for Week 4</p></div>
-            <span class="resource-type">Doc · Outline</span>
-            <a class="resource-link" href="https://docs.google.com/document/d/1bAWWlb6sSPKD279LLPwjHJJhGA_2mmiBhNyLILMtL04/edit" target="_blank">Open ↗</a>
+            <div class="resource-info"><h4>The Way</h4><p>Musashi's 9 principles, philosophical frameworks from Buddha, Confucius, and Plato — foundational wisdom for Week 4</p></div>
+            <div style="display:flex;flex-direction:column;gap:6px;align-items:center;">
+              <a class="resource-link" href="https://youtu.be/cUDA6tXtzbw?si=hBIHiN3RnHBkh82H" target="_blank" style="flex-direction:column;align-items:center;gap:2px;padding:8px 14px;">Open<span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);">Video</span></a>
+              <a class="resource-link" href="https://docs.google.com/document/d/1bAWWlb6sSPKD279LLPwjHJJhGA_2mmiBhNyLILMtL04/edit" target="_blank" style="flex-direction:column;align-items:center;gap:2px;padding:8px 14px;">Open<span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);">Outline</span></a>
+            </div>
           </div>
           <div class="resource-row">
-            <div class="resource-num">5</div>
-            <div class="resource-info"><h4>Finding Your Soul — Outline</h4><p>Journaling techniques, the soul across religious &amp; philosophical traditions, remaking &amp; renewing the soul</p></div>
-            <span class="resource-type">Doc · Outline</span>
-            <a class="resource-link" href="https://docs.google.com/document/d/1F4O8932BXA4iUeCoN7N2CeCNA64ufqJ_4iUPIdb0Lto/edit" target="_blank">Open ↗</a>
+            <div class="resource-info"><h4>Finding Your Soul</h4><p>Journaling techniques, the soul across religious &amp; philosophical traditions, remaking &amp; renewing the soul</p></div>
+            <div style="display:flex;flex-direction:column;gap:6px;align-items:center;">
+              <a class="resource-link" href="https://youtu.be/SsYwEa26uus?si=4VvCaO4DdbGHpo7o" target="_blank" style="flex-direction:column;align-items:center;gap:2px;padding:8px 14px;">Open<span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);">Video</span></a>
+              <a class="resource-link" href="https://docs.google.com/document/d/1F4O8932BXA4iUeCoN7N2CeCNA64ufqJ_4iUPIdb0Lto/edit" target="_blank" style="flex-direction:column;align-items:center;gap:2px;padding:8px 14px;">Open<span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);">Outline</span></a>
+            </div>
           </div>
           <div class="resource-row">
-            <div class="resource-num">6</div>
-            <div class="resource-info"><h4>Spiritual Warfare — Outline</h4><p>Universal Laws of Vibration &amp; Energy, manipulation vs alignment, good vs bad energy dynamics</p></div>
-            <span class="resource-type">Doc · Outline</span>
-            <a class="resource-link" href="https://docs.google.com/document/d/1bWj3Yy9JS2kWdG-mr7B60GvRE9YyCB6ov_JoZMTYv9s/edit" target="_blank">Open ↗</a>
+            <div class="resource-info"><h4>Spiritual Warfare</h4><p>Universal Laws of Vibration &amp; Energy, manipulation vs alignment, good vs bad energy dynamics</p></div>
+            <div style="display:flex;flex-direction:column;gap:6px;align-items:center;">
+              <a class="resource-link" href="https://youtu.be/HgGzTxEI7zc?si=W00BdS0AqLeihla_" target="_blank" style="flex-direction:column;align-items:center;gap:2px;padding:8px 14px;">Open<span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);">Video</span></a>
+              <a class="resource-link" href="https://docs.google.com/document/d/1bWj3Yy9JS2kWdG-mr7B60GvRE9YyCB6ov_JoZMTYv9s/edit" target="_blank" style="flex-direction:column;align-items:center;gap:2px;padding:8px 14px;">Open<span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);">Outline</span></a>
+            </div>
           </div>
           <div class="resource-row">
-            <div class="resource-num">6.1</div>
-            <div class="resource-info"><h4>Spiritual Warfare — Notes (Dark Psychology)</h4><p>Dark psychology techniques, manipulation in relationships, cognitive-behavioral protection strategies</p></div>
-            <span class="resource-type">Doc · Notes</span>
-            <a class="resource-link" href="https://docs.google.com/document/d/1A6QtvsVdVdodq5U8AdS4rkTn0Xz9iT7vt5WINsOYdv0/edit" target="_blank">Open ↗</a>
+            <div class="resource-info"><h4>Spiritual Warfare (Dark Psychology)</h4><p>Dark psychology techniques, manipulation in relationships, cognitive-behavioral protection strategies</p></div>
+            <a class="resource-link" href="https://docs.google.com/document/d/1A6QtvsVdVdodq5U8AdS4rkTn0Xz9iT7vt5WINsOYdv0/edit" target="_blank" style="flex-direction:column;align-items:center;gap:2px;padding:8px 14px;">Open<span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);">Notes</span></a>
           </div>
           <div class="resource-row">
-            <div class="resource-num">7</div>
-            <div class="resource-info"><h4>KUEL Journaling — Notes</h4><p>Types of journaling, goal-setting journal templates, visualization techniques for focus &amp; accountability</p></div>
-            <span class="resource-type">Doc · Notes</span>
-            <a class="resource-link" href="https://docs.google.com/document/d/1FabR3Wq3YNLz77v4y1BeR55FFTLTPfwELDbF1rTxaS0/edit" target="_blank">Open ↗</a>
+            <div class="resource-info"><h4>KUEL Journaling</h4><p>Types of journaling, goal-setting journal templates, visualization techniques for focus &amp; accountability</p></div>
+            <a class="resource-link" href="https://docs.google.com/document/d/1FabR3Wq3YNLz77v4y1BeR55FFTLTPfwELDbF1rTxaS0/edit" target="_blank" style="flex-direction:column;align-items:center;gap:2px;padding:8px 14px;">Open<span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);">Notes</span></a>
           </div>
           <div class="resource-row">
-            <div class="resource-num">8</div>
-            <div class="resource-info"><h4>KUEL Nutrition — Notes</h4><p>Alkaline diet principles, food pH science, fasting protocols, nutrition lesson plan for Week 5</p></div>
-            <span class="resource-type">Doc · Notes</span>
-            <a class="resource-link" href="https://docs.google.com/document/d/1SNsy-TddZl7z1ZEUBB5fWAivo5YgPBCfPzuk6BMNdQM/edit" target="_blank">Open ↗</a>
+            <div class="resource-info"><h4>KUEL Nutrition</h4><p>Alkaline diet principles, food pH science, fasting protocols, nutrition lesson plan for Week 5</p></div>
+            <a class="resource-link" href="https://docs.google.com/document/d/1SNsy-TddZl7z1ZEUBB5fWAivo5YgPBCfPzuk6BMNdQM/edit" target="_blank" style="flex-direction:column;align-items:center;gap:2px;padding:8px 14px;">Open<span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);">Notes</span></a>
           </div>
           <div class="resource-row">
-            <div class="resource-num">9</div>
-            <div class="resource-info"><h4>KUEL Power — Notes</h4><p>The Art of War &amp; spiritual warfare, Sun Tzu's principles applied to inner battles, strategy &amp; discernment</p></div>
-            <span class="resource-type">Doc · Notes</span>
-            <a class="resource-link" href="https://docs.google.com/document/d/10s8_Lx_pq6pSUddy2X8eagO0ipqTonxfkh_jma1QumQ/edit" target="_blank">Open ↗</a>
+            <div class="resource-info"><h4>KUEL Power</h4><p>The Art of War &amp; spiritual warfare, Sun Tzu's principles applied to inner battles, strategy &amp; discernment</p></div>
+            <a class="resource-link" href="https://docs.google.com/document/d/10s8_Lx_pq6pSUddy2X8eagO0ipqTonxfkh_jma1QumQ/edit" target="_blank" style="flex-direction:column;align-items:center;gap:2px;padding:8px 14px;">Open<span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);">Notes</span></a>
           </div>
           <div class="resource-row">
-            <div class="resource-num">10</div>
-            <div class="resource-info"><h4>KUEL Self-Care — Notes</h4><p>50 self-care practices across physical, emotional, mental, social, and spiritual dimensions of wellness</p></div>
-            <span class="resource-type">Doc · Notes</span>
-            <a class="resource-link" href="https://docs.google.com/document/d/1WyqGHhx80-HcZFWuROxm4NFDCoDVZo_YusUPRnDB1vk/edit" target="_blank">Open ↗</a>
+            <div class="resource-info"><h4>KUEL Self-Care</h4><p>50 self-care practices across physical, emotional, mental, social, and spiritual dimensions of wellness</p></div>
+            <a class="resource-link" href="https://docs.google.com/document/d/1WyqGHhx80-HcZFWuROxm4NFDCoDVZo_YusUPRnDB1vk/edit" target="_blank" style="flex-direction:column;align-items:center;gap:2px;padding:8px 14px;">Open<span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);">Notes</span></a>
           </div>
         </div>
       </div>
@@ -783,6 +787,20 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
 </div>
 
 <script>
+function toggleDropdown() {
+  const menu = document.getElementById('dropdown-menu');
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+}
+function closeDropdown() {
+  document.getElementById('dropdown-menu').style.display = 'none';
+}
+document.addEventListener('click', function(e) {
+  const btn = document.getElementById('hamburger-btn');
+  const menu = document.getElementById('dropdown-menu');
+  if (menu && btn && !btn.contains(e.target) && !menu.contains(e.target)) {
+    menu.style.display = 'none';
+  }
+});
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
