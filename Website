@@ -249,9 +249,9 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
       <div class="section-label">What We Work On</div>
       <h2 class="section-title">The Three <em>Pillars</em></h2>
       <div class="pillars-grid">
-        <div class="pillar"><div class="pillar-icon">B</div><h3>Body</h3><p>BMI, nutrition, exercise, sleep, general living, and all physical needs that form the foundation of wellbeing.</p></div>
-        <div class="pillar"><div class="pillar-icon">M</div><h3>Mind</h3><p>Attention, focus, repetitive thought patterns, cognitive restructuring, and mental maintenance practices.</p></div>
-        <div class="pillar"><div class="pillar-icon">S</div><h3>Spirit</h3><p>Connection to self, others, and nature. Esteem, emotional intelligence, inner fortitude, and life energy.</p></div>
+        <div class="pillar"><h3>Body</h3><p>BMI, nutrition, exercise, sleep, general living, and all physical needs that form the foundation of wellbeing.</p></div>
+        <div class="pillar"><h3>Mind</h3><p>Attention, focus, repetitive thought patterns, cognitive restructuring, and mental maintenance practices.</p></div>
+        <div class="pillar"><h3>Spirit</h3><p>Connection to self, others, and nature. Esteem, emotional intelligence, inner fortitude, and life energy.</p></div>
       </div>
     </div>
   </section>
