@@ -15,6 +15,16 @@
   --border:rgba(201,168,76,0.18); --radius:4px;
 }
 html { scroll-behavior:smooth; }
+  /* Suppress auto-generated anchor links */
+  a.anchor, a[aria-hidden="true"], .anchor-link,
+  h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
+    display: none !important;
+    pointer-events: none !important;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    position: static !important;
+  }
+
 body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; overflow-x:hidden; }
 .page { display:none; }
 .page.active { display:block; }
@@ -173,6 +183,7 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
 .footer-bottom { font-size:11px; color:var(--text-3); padding-top:1.5rem; border-top:0.5px solid rgba(201,168,76,.08); }
 
 @media (max-width:768px) {
+  .coach-features-grid { grid-template-columns: 1fr !important; }
   .nav-links, .nav-cta { display:none; }
   .mission-grid, .about-grid { grid-template-columns:1fr; gap:2.5rem; }
   .pillars-grid, .weeks-grid, .featured-docs { grid-template-columns:1fr; }
@@ -189,7 +200,7 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
   <div class="nav-logo" onclick="showPage('home')">KUEL <span>Conditioning</span></div>
   <ul class="nav-links">
     <li><a id="nav-home" class="active" onclick="showPage('home')">Home</a></li>
-    <li><a id="nav-course" onclick="showPage('course')">The Course</a></li>
+    <li><a id="nav-course" onclick="showPage('course')">The KKK</a></li>
     <li><a id="nav-resources" onclick="showPage('resources')">Resources</a></li>
     <li><a id="nav-videos" onclick="showPage('videos')">Videos</a></li>
     <li><a id="nav-coach" onclick="showPage('coach')">Life Coach</a></li>
@@ -205,7 +216,7 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
     </button>
     <div id="dropdown-menu" style="display:none;position:absolute;top:calc(100% + 10px);right:0;background:rgba(14,15,13,0.98);border:0.5px solid rgba(201,168,76,0.25);border-radius:var(--radius);min-width:180px;z-index:999;backdrop-filter:blur(12px);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.5);">
       <div onclick="showPage('home');toggleDropdown()" style="padding:12px 20px;font-size:13px;color:var(--text-2);cursor:pointer;letter-spacing:.06em;transition:background .15s;border-bottom:0.5px solid rgba(201,168,76,0.08);" onmouseover="this.style.background='rgba(201,168,76,0.08)';this.style.color='var(--gold)'" onmouseout="this.style.background='transparent';this.style.color='var(--text-2)'">Home</div>
-      <div onclick="showPage('course');toggleDropdown()" style="padding:12px 20px;font-size:13px;color:var(--text-2);cursor:pointer;letter-spacing:.06em;transition:background .15s;border-bottom:0.5px solid rgba(201,168,76,0.08);" onmouseover="this.style.background='rgba(201,168,76,0.08)';this.style.color='var(--gold)'" onmouseout="this.style.background='transparent';this.style.color='var(--text-2)'">The Course</div>
+      <div onclick="showPage('course');toggleDropdown()" style="padding:12px 20px;font-size:13px;color:var(--text-2);cursor:pointer;letter-spacing:.06em;transition:background .15s;border-bottom:0.5px solid rgba(201,168,76,0.08);" onmouseover="this.style.background='rgba(201,168,76,0.08)';this.style.color='var(--gold)'" onmouseout="this.style.background='transparent';this.style.color='var(--text-2)'">The KKK</div>
       <div onclick="showPage('resources');toggleDropdown()" style="padding:12px 20px;font-size:13px;color:var(--text-2);cursor:pointer;letter-spacing:.06em;transition:background .15s;border-bottom:0.5px solid rgba(201,168,76,0.08);" onmouseover="this.style.background='rgba(201,168,76,0.08)';this.style.color='var(--gold)'" onmouseout="this.style.background='transparent';this.style.color='var(--text-2)'">Resources</div>
       <div onclick="showPage('videos');toggleDropdown()" style="padding:12px 20px;font-size:13px;color:var(--text-2);cursor:pointer;letter-spacing:.06em;transition:background .15s;border-bottom:0.5px solid rgba(201,168,76,0.08);" onmouseover="this.style.background='rgba(201,168,76,0.08)';this.style.color='var(--gold)'" onmouseout="this.style.background='transparent';this.style.color='var(--text-2)'">Videos</div>
       <div onclick="showPage('coach');toggleDropdown()" style="padding:12px 20px;font-size:13px;color:var(--gold);cursor:pointer;letter-spacing:.06em;font-weight:500;transition:background .15s;" onmouseover="this.style.background='rgba(201,168,76,0.08)'" onmouseout="this.style.background='transparent'">Life Coach</div>
@@ -227,7 +238,7 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
 
   </div>
 
-  <section class="mission" id="mission">
+  <section class="mission">
     <div class="section-inner">
       <div class="mission-grid">
         <div>
@@ -244,7 +255,7 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
     </div>
   </section>
 
-  <section id="pillars">
+  <section>
     <div class="section-inner">
       <div class="section-label">What We Work On</div>
       <h2 class="section-title">The Three <em>Pillars</em></h2>
@@ -275,7 +286,6 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
 <!-- ═══════════════ COURSE PAGE ═══════════════ -->
 <div id="page-course" class="page">
   <div class="videos-hero">
-    <div class="section-label">The Program</div>
     <h1 class="section-title" style="max-width:700px;margin:0 auto .75rem;">KUEL Konditioning Kourse<br><em>6-Week Transformation</em></h1>
     <p class="section-body" style="margin:0 auto;">A structured, deeply personal journey through self-assessment, shadow work, spiritual awakening, and lasting reset. Each week builds on the last — guiding you from where you are to where you're capable of being.</p>
   </div>
@@ -359,17 +369,17 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
       <div style="margin-top:4rem;">
         <div class="resources-list">
           <div class="resource-row">
-            <div class="resource-info"><h4>The Way</h4><p>Musashi's 9 principles, philosophical frameworks from Buddha, Confucius, and Plato — foundational wisdom for Week 4</p></div>
-            <div style="display:flex;flex-direction:column;gap:6px;align-items:center;">
-              <a class="resource-link" href="https://youtu.be/cUDA6tXtzbw?si=hBIHiN3RnHBkh82H" target="_blank" style="flex-direction:column;align-items:center;gap:2px;padding:8px 14px;">Open<span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);">Video</span></a>
-              <a class="resource-link" href="https://docs.google.com/document/d/1bAWWlb6sSPKD279LLPwjHJJhGA_2mmiBhNyLILMtL04/edit" target="_blank" style="flex-direction:column;align-items:center;gap:2px;padding:8px 14px;">Open<span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);">Outline</span></a>
-            </div>
-          </div>
-          <div class="resource-row">
             <div class="resource-info"><h4>Finding Your Soul</h4><p>Journaling techniques, the soul across religious &amp; philosophical traditions, remaking &amp; renewing the soul</p></div>
             <div style="display:flex;flex-direction:column;gap:6px;align-items:center;">
               <a class="resource-link" href="https://youtu.be/SsYwEa26uus?si=4VvCaO4DdbGHpo7o" target="_blank" style="flex-direction:column;align-items:center;gap:2px;padding:8px 14px;">Open<span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);">Video</span></a>
               <a class="resource-link" href="https://docs.google.com/document/d/1F4O8932BXA4iUeCoN7N2CeCNA64ufqJ_4iUPIdb0Lto/edit" target="_blank" style="flex-direction:column;align-items:center;gap:2px;padding:8px 14px;">Open<span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);">Outline</span></a>
+            </div>
+          </div>
+          <div class="resource-row">
+            <div class="resource-info"><h4>The Way</h4><p>Musashi's 9 principles, philosophical frameworks from Buddha, Confucius, and Plato — foundational wisdom for Week 4</p></div>
+            <div style="display:flex;flex-direction:column;gap:6px;align-items:center;">
+              <a class="resource-link" href="https://youtu.be/cUDA6tXtzbw?si=hBIHiN3RnHBkh82H" target="_blank" style="flex-direction:column;align-items:center;gap:2px;padding:8px 14px;">Open<span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);">Video</span></a>
+              <a class="resource-link" href="https://docs.google.com/document/d/1bAWWlb6sSPKD279LLPwjHJJhGA_2mmiBhNyLILMtL04/edit" target="_blank" style="flex-direction:column;align-items:center;gap:2px;padding:8px 14px;">Open<span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);">Outline</span></a>
             </div>
           </div>
           <div class="resource-row">
@@ -413,7 +423,6 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
 <!-- ═══════════════ VIDEOS PAGE ═══════════════ -->
 <div id="page-videos" class="page">
   <div class="videos-hero">
-    <div class="section-label">Media</div>
     <h1 class="section-title" style="max-width:600px;margin:0 auto 1rem;">KUEL Konditioning Kourse<br><em>Video Library</em></h1>
     <p class="section-body" style="margin:0 auto 2.5rem;">Explore our full video series — teachings on true healing, spiritual conditioning, and the transformative practices at the heart of the course.</p>
   </div>
@@ -443,21 +452,21 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
 
           <div style="background:var(--bg3);border:0.5px solid var(--border);border-radius:var(--radius);overflow:hidden;">
             <div style="aspect-ratio:16/9;background:#000;">
-              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/cUDA6tXtzbw?rel=0&modestbranding=1" title="The Way" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="display:block;border:none;"></iframe>
-            </div>
-            <div style="padding:1rem 1.25rem;">
-              <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--cream);margin-bottom:6px;">The Way</div>
-              <div style="font-size:13px;color:var(--text-2);line-height:1.7;">Drawing from Musashi's 9 Principles, the 10 Abilities, and the 7 Arts, this lesson explores what it means to master not just a skill but an entire way of living. Weaving together the philosophies of Confucius, Buddha, and Plato, it challenges you to live honestly, train relentlessly, and see what others cannot — turning strategy and wisdom into a daily spiritual practice.</div>
-            </div>
-          </div>
-
-          <div style="background:var(--bg3);border:0.5px solid var(--border);border-radius:var(--radius);overflow:hidden;">
-            <div style="aspect-ratio:16/9;background:#000;">
               <iframe width="100%" height="100%" src="https://www.youtube.com/embed/SsYwEa26uus?rel=0&modestbranding=1" title="Finding Your Soul" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="display:block;border:none;"></iframe>
             </div>
             <div style="padding:1rem 1.25rem;">
               <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--cream);margin-bottom:6px;">Finding Your Soul</div>
               <div style="font-size:13px;color:var(--text-2);line-height:1.7;">This lesson dives into the soul — what it is across religion, philosophy, and psychology — and how to begin the process of remaking it. Through journaling, shadow work, and the principles of spiritual alchemy, you'll learn how to confront suppressed emotions, release past wounds, and reconnect with your authentic self. It also explores the role of psilocybin as a catalyst for deep inner transformation when used with intention and care.</div>
+            </div>
+          </div>
+
+          <div style="background:var(--bg3);border:0.5px solid var(--border);border-radius:var(--radius);overflow:hidden;">
+            <div style="aspect-ratio:16/9;background:#000;">
+              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/cUDA6tXtzbw?rel=0&modestbranding=1" title="The Way" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="display:block;border:none;"></iframe>
+            </div>
+            <div style="padding:1rem 1.25rem;">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--cream);margin-bottom:6px;">The Way</div>
+              <div style="font-size:13px;color:var(--text-2);line-height:1.7;">Drawing from Musashi's 9 Principles, the 10 Abilities, and the 7 Arts, this lesson explores what it means to master not just a skill but an entire way of living. Weaving together the philosophies of Confucius, Buddha, and Plato, it challenges you to live honestly, train relentlessly, and see what others cannot — turning strategy and wisdom into a daily spiritual practice.</div>
             </div>
           </div>
 
@@ -510,7 +519,7 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
         <br>
         <p class="section-body">It takes a <em style="color:var(--gold);">hedonistic approach to happiness</em> — helping you make the most out of life in ways that lift you up without harming yourself or others.</p>
         <br>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.5rem;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.5rem;" class="coach-features-grid">
           <div style="background:var(--bg3);border:0.5px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem;">
             <div style="font-size:22px;margin-bottom:.5rem;">📋</div>
             <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--cream);margin-bottom:.4rem;">Needs Assessment</div>
@@ -527,7 +536,7 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
       <!-- Features highlight -->
       <div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radius);padding:2rem 2.5rem;margin-bottom:3rem;">
         <div class="section-label">What You'll Receive</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;" class="coach-features-grid">
           <div style="display:flex;gap:.75rem;align-items:flex-start;">
             <span style="color:var(--gold);font-size:16px;margin-top:2px;">📅</span>
             <div>
@@ -578,7 +587,7 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
   <div class="footer-logo">KUEL Conditioning</div>
   <ul class="footer-links">
     <li><a onclick="showPage('home')">Home</a></li>
-    <li><a onclick="showPage('course')">The Course</a></li>
+    <li><a onclick="showPage('course')">The KKK</a></li>
     <li><a onclick="showPage('resources')">Resources</a></li>
     <li><a onclick="showPage('videos')">Videos</a></li>
     <li><a onclick="showPage('coach')">Life Coach</a></li>
