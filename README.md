@@ -591,7 +591,7 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
     <h1 class="section-title" style="max-width:760px;margin:0 auto .75rem;">KUEL <em>Clinical</em></h1>
     <p class="section-body" style="margin:0 auto 2rem;">Supervised AI Therapy Support — every coaching conversation visible to a licensed clinician in real time, with e-sign consent.</p>
     <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-      <a class="btn-primary" href="https://claude.ai/public/artifacts/a957424d-826c-4c4e-ba59-e13ccdaee9a6" target="_blank" rel="noopener" style="font-size:14px;padding:14px 36px;">Launch KUEL Clinical ↗</a>
+      <a class="btn-primary" href="https://claude.ai/public/artifacts/4e666671-c978-4731-96ff-276b5fd3e38f" target="_blank" rel="noopener" style="font-size:14px;padding:14px 36px;">Launch KUEL Clinical ↗</a>
       <span style="font-size:11px;color:var(--text-3);font-style:italic;">(free claude.ai account required)</span>
     </div>
   </div>
@@ -673,7 +673,7 @@ footer { background:var(--bg2); border-top:0.5px solid var(--border); padding:3r
         <h2 class="section-title" style="text-align:center;margin-bottom:1rem;">Experience <em>KUEL Clinical</em></h2>
         <p class="section-body" style="margin:0 auto 2rem;text-align:center;">Explore all three portals — Patient, Therapist, and Parent — in our interactive demo. A free claude.ai account is required.</p>
         <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-          <a class="btn-primary" href="https://claude.ai/public/artifacts/a957424d-826c-4c4e-ba59-e13ccdaee9a6" target="_blank" rel="noopener" style="font-size:14px;padding:14px 40px;">Launch KUEL Clinical ↗</a>
+          <a class="btn-primary" href="https://claude.ai/public/artifacts/4e666671-c978-4731-96ff-276b5fd3e38f" target="_blank" rel="noopener" style="font-size:14px;padding:14px 40px;">Launch KUEL Clinical ↗</a>
           <span style="font-size:11px;color:var(--text-3);font-style:italic;">(free claude.ai account required)</span>
         </div>
       </div>
